@@ -5,10 +5,14 @@
     <main>
       <div class = "form-container">
         <label for = "lecture-searcher">Search</label><input id = "lecture-searcher" type = 'text' placeholder = "Lecture Searcher" v-model = "word">
+        <label for = "date-filter">Date filter</label>
+        <select id = "date-filter" v-model = "date">
+          <option v-for="d of allDates" :value="d"> {{ d }} </option>
+        </select>
       </div>
         <h1>Lectures</h1>
         <div id="card-container">
-            <Card v-for = "(lecture, index) in filtered" :title = "lecture.title" :subtitle = "speakers[index]" :link = "'/lectures/' + lecture.alias" :img = "lecture.picture[0].url" />
+            <Card v-for = "(lecture, index) in filteredByDate" :title = "lecture.title" :subtitle = "speakers[index]" :link = "'/lectures/' + lecture.alias" :img = "lecture.picture[0].url" />
         </div>
     </main>
 </template>
@@ -21,6 +25,7 @@
         Search the speakers which title includes the key word
     */
     const word = ref("");
+    const date = ref(0);
 
     const filtered = computed(() => {
       // Checking for values where the full list is provided
@@ -41,10 +46,46 @@
       return arr
     })
 
+    /* Get the available dates (of filtered Lectures list) */
+    const allDates = computed(() => {
+      const arr = []
+      // Lectures' dates
+      for(let lecture of filtered.value) {
+        for(let s of lecture.schedule){
+          if(!arr.includes(s.date)){
+            arr.push(s.date)
+          }
+        }
+      }
+        return arr.sort()
+    })
+
+    // Filtering the list of Lectures by date
+    const filteredByDate = computed(() => {
+      // Checking for values where the full list is provided
+      if(date.value == 0 || date.value == "")
+        return filtered.value
+
+      const arr = []
+
+      // Filtering the list
+      for(let lecture of filtered.value) {
+        for(let s of lecture.schedule){
+          if(s.date === date.value){
+            arr.push(lecture)
+          }
+
+        }
+      }
+      // Returning the filtered list
+      return arr
+    })
+
+    // Crate subtitle (speakers) for each filtered lecture
     const speakers = computed(() => {
 
       const arr = []
-      for(const l of filtered.value) {
+      for(const l of filteredByDate.value) {
         let speakers = []
         for(let s of l.speakers){
           speakers.push(s.name + ' ' + s.surname)
