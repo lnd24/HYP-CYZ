@@ -7,7 +7,8 @@
           <img class="logo-img" src="~/assets/img/logo.png" alt = "home">
         </NuxtLink>
         <nav>
-            <NuxtLink to = "/">HOME</NuxtLink>
+            <NuxtLink to = "/about">ABOUT US</NuxtLink>
+            <NuxtLink to = "/daily-schedule">DAILY SCHEDULE</NuxtLink>
             <NuxtLink to = "/speakers">SPEAKERS</NuxtLink>
             <NuxtLink to = "/lectures">LECTURES</NuxtLink>
             <NuxtLink to = "/activities">ALL ACTIVITIES</NuxtLink>

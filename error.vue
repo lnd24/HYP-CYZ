@@ -14,16 +14,17 @@
 
 <script setup>
   const route = useRoute()
-  const availablePath = ["/speakers", "/lectures", "/activities", "/about", "/contact"]
+  const availablePath = ["speakers", "lectures", "activities", "about", "contact", "daily-schedule"]
   const path = computed(() => {
     const pathArray = route.path.split('/')
-    do{
-      pathArray.pop()
-    }while (pathArray.length > 2)
-    const p = pathArray.join('/')
-    if(availablePath.includes(p)){
+    if(availablePath.includes(pathArray[1])){
+      do{
+        pathArray.pop()
+      }while (pathArray.length > 2)
+      const p = pathArray.join('/')
       return p
-    }else{
+    }
+    else{
       return null
     }
   })
