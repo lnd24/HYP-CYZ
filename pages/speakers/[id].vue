@@ -1,0 +1,105 @@
+<!--
+    Page description for a single speaker.
+-->
+<template>
+    <main>
+        <div class = "info-group">
+            <img id = "main-img" :src = "url" />
+            <div id = "data-container">
+                <p class = "data">Name: <span>{{ speaker.name }}</span></p>
+                <p class = "data">Surname: <span>{{ speaker.surname }}</span></p>
+                <p class = "data">Age: <span>{{ speaker.age }}</span></p>
+                <p class = "data">Email: <span>{{ speaker.email }}</span></p>
+                <p class = "data">Lectures: <span v-for="(l, index) in speaker.lectures">
+                  <span v-if = "index < speaker.lectures.length - 1">
+                  {{ l.title }},
+                  </span>
+                  <span v-else>
+                    {{ l.title}}
+                  </span>
+                </span></p>
+            </div>
+        </div>
+        <h2>Short CV</h2>
+        <p id = "description" v-html = "newLineOnFullStop(speaker.description)"></p>
+      <div>
+        <h3>More Info about this Speaker's Lectures</h3>
+        <div class = "info-group">
+          <SmallCard v-for="l of speaker.lectures" :title = "l.title" :link = "'/lectures/' + l.alias" />
+        </div>
+      </div>
+      <div>
+        <h3>Other Speakers</h3>
+        <div class = "info-group">
+          <SmallCard v-for="s of others"  :title = "s.name + ' ' + s.surname" :link = "'/speakers/' + s.alias" />
+        </div>
+      </div>
+
+
+
+    </main>
+</template>
+
+<script setup>
+    const route = useRoute()
+    const id = route.params.id
+    // useRuntimeConfig provide us with environment variables set up in the nuxtconfig file
+    const { data: speaker } = await useFetch('/api/speakers/' + id)
+    const { data: all } = await useFetch('/api/speakers/')
+    const url = '/img/' + speaker.value.photo[0].url
+
+    const others = computed(() => {
+
+      const arr = []
+
+      // Add only the other speakers in the list
+      for(let s of all.value) {
+        if(s.alias != id){
+          arr.push(s)
+        }
+
+      }
+
+      // Returning the list
+      return arr
+    })
+
+</script>
+
+<style>
+    #main-img {
+    width: 30%;
+    height: auto;
+    }
+
+    main {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-group {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .data {
+        font-weight: bolder;
+        font-size: 20pt
+    }
+
+    .data span {
+        font-weight: 100;
+        font-size: 15pt;
+    }
+
+    #description {
+        padding: 0 20px 0 20px;
+        font-size: 15pt;
+    }
+</style>
