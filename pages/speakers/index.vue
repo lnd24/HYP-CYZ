@@ -28,7 +28,7 @@
 
     const filtered = computed(() => {
         // Checking for values where the full list is provided
-        if(word.value == "")
+        if(word.value === "")
             return speakers.value
 
         const arr = []
@@ -45,6 +45,16 @@
         return arr
     })
 
+    /* Head: title, site_name */
+    useHead({
+      title: "Our Speakers - CYZ Summer School",
+      meta: [
+        {
+          name: "site_name",
+          content: "CYZ Summer School"
+        }
+      ]
+    })
 
 </script>
 

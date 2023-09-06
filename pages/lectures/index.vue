@@ -22,14 +22,14 @@
     const { data: lectures } = await useFetch('/api/lectures')
 
     /*
-        Search the speakers which title includes the key word
+        Search the lectures which title includes the key word
     */
     const word = ref("");
     const date = ref(0);
 
     const filtered = computed(() => {
       // Checking for values where the full list is provided
-      if(word.value == "")
+      if(word.value === "")
         return lectures.value
 
       const arr = []
@@ -48,7 +48,8 @@
 
     /* Get the available dates (of filtered Lectures list) */
     const allDates = computed(() => {
-      const arr = []
+      /* Choice to clean the filter */
+      const arr = [""]
       // Lectures' dates
       for(let lecture of filtered.value) {
         for(let s of lecture.schedule){
@@ -63,7 +64,7 @@
     // Filtering the list of Lectures by date
     const filteredByDate = computed(() => {
       // Checking for values where the full list is provided
-      if(date.value == 0 || date.value == "")
+      if(date.value === 0 || date.value === "")
         return filtered.value
 
       const arr = []
@@ -95,6 +96,17 @@
       }
 
       return arr
+    })
+
+    /* Head: title, site_name */
+    useHead({
+      title: "Our Lectures - CYZ Summer School",
+      meta: [
+        {
+          name: "site_name",
+          content: "CYZ Summer School"
+        }
+      ]
     })
 </script>
 

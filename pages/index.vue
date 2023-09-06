@@ -20,7 +20,20 @@
 </script>
 
 <script setup>
-
+  /* Head: title, description, site_name */
+  useHead({
+    title: "Home - CYZ Summer School",
+    meta: [
+      {
+        name: "description",
+        content: "Hi here is the CYZ Summer School"
+      },
+      {
+        name: "site_name",
+        content: "CYZ Summer School"
+      }
+    ]
+  })
 </script>
 <style>
     #main-img {

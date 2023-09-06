@@ -22,6 +22,7 @@
 </template>
 
 <script setup>
+
   const { data: lectures } = await useFetch('/api/lectures')
   const { data: sactivities } = await useFetch('/api/activities')
   const date = new Date();
@@ -39,7 +40,7 @@
     // Filtering the list (i : index of the lecture schedule)
     for(let lecture of lectures.value) {
       for(let s of lecture.schedule){
-        if(s.date == currentDate.value){
+        if(s.date === currentDate.value){
           arr.push({
             title: lecture.title,
             subtitle: s.location,
@@ -58,7 +59,7 @@
     const arr = []
     // Filtering the list
     for(let sa of sactivities.value) {
-      if(sa.schedule.date == currentDate.value){
+      if(sa.schedule.date === currentDate.value){
         arr.push({
           title: sa.title,
           subtitle: sa.type + ', ' + sa.schedule.location,
@@ -82,6 +83,18 @@
     })
     return arr
   })
+
+  /* Head: title, site_name */
+  useHead({
+    title: "Daily Schedule - CYZ Summer School",
+    meta: [
+      {
+        name: "site_name",
+        content: "CYZ Summer School"
+      }
+    ]
+  })
+
 
 </script>
 <style>

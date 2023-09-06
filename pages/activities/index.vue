@@ -32,7 +32,8 @@
     /* Get all the available dates (of lectures and social activities) */
     const allDates = computed(() => {
 
-      const arr = []
+      /* add the choice to clean the filter */
+      const arr = [""]
 
       // Lectures' dates
       for(let lecture of lectures.value) {
@@ -57,7 +58,7 @@
     // Filtering the list of Lectures
     const filteredLectures = computed(() => {
       // Checking for values where the full list is provided
-      if(date.value == 0 || date.value == "")
+      if(date.value === 0 || date.value === "")
         return lectures.value
 
       const arr = []
@@ -65,7 +66,7 @@
       // Filtering the list
       for(let lecture of lectures.value) {
         for(let s of lecture.schedule){
-          if(s.date == date.value){
+          if(s.date === date.value){
             arr.push(lecture)
           }
 
@@ -94,14 +95,14 @@
     // Filtering the list of Social Activities
     const filteredActivities = computed(() => {
       // Checking for values where the full list is provided
-      if(date.value == 0 || date.value == "")
+      if(date.value === 0 || date.value === "")
         return sactivities.value
 
       const arr = []
 
       // Filtering the list
       for(let sa of sactivities.value) {
-        if(sa.schedule.date == date.value){
+        if(sa.schedule.date === date.value){
           arr.push(sa)
         }
       }
@@ -110,6 +111,16 @@
       return arr
     })
 
+    /* Head: title, site_name */
+    useHead({
+      title: "Our Activities - CYZ Summer School",
+      meta: [
+        {
+          name: "site_name",
+          content: "CYZ Summer School"
+        }
+      ]
+    })
 
 
 </script>

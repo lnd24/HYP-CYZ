@@ -4,7 +4,7 @@
 <template>
     <main>
         <main>
-          <p> This are our contacts: </p>
+          <p> These are our contacts: </p>
           <ul>
             <li>E-mail: mail@shelter.it</li>
             <li>Tel: 053684864351</li>
@@ -23,14 +23,27 @@
                     <label for = "message">Message</label>
                     <textarea id = "message" placeholder = "Write your message here"></textarea>  
                 </div>
-                <button>Send Message</button>
+                <button type = "submit" @click = "submitForm">Send Message</button>
             </form>
         </main>
     </main>
 </template>
 
-<script>
+<script setup>
+  /* Head: title, site_name */
+  useHead({
+    title: "Contacts - CYZ Summer School",
+    meta: [
+      {
+        name: "site_name",
+        content: "CYZ Summer School"
+      }
+    ]
+  })
 
+  function submitForm() {
+    alert('Message sent successfully')
+  }
 </script>
 
 <style>
