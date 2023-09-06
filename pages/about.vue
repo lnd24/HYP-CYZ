@@ -36,20 +36,20 @@
     }
   }
 
+</script>
+
+<script setup>
   /* Head: title, description, site_name */
   useHead({
     title: "About Us - CYZ Summer School",
     meta: [
-      {
-        name: "description",
-        content: "Hi here is the CYZ Summer School"
-      },
       {
         name: "site_name",
         content: "CYZ Summer School"
       }
     ]
   })
+
 </script>
 
 <style>

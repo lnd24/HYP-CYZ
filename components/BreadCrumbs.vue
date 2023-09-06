@@ -13,27 +13,33 @@
 </template>
 
 <script setup>
+  import {firstLetterUpperCase} from "~/composables/utils";
+
   const route = useRoute()
   const getBreadcrumbs = computed(() => {
 
 
     const pathArray = route.path.split('/')
     pathArray.shift() /* remove first element '' */
-    const breadcrumbs = pathArray.reduce((arr, path, idx) => {
-      arr.push({
-        /* if first element add only '/' else add previous path + element */
-        to: !!arr[idx - 1]
-            ? arr[idx - 1].to + '/' + path
-            : '/' + path,
-        title: path.toString().replace('-', ' '),
-      })
-      // remove additional path (the max level must be 2 + 1 (Home))
-      while(arr.length > 2){
-        arr.pop()
-      }
-      return arr
-    }, [])
 
+    let breadcrumbs = []
+    /* check path */
+    if(getAvailablePaths().includes(pathArray[0])){
+      breadcrumbs = pathArray.reduce((arr, path, idx) => {
+        arr.push({
+          /* if first element add only '/' else add previous path + element */
+          to: !!arr[idx - 1]
+              ? arr[idx - 1].to + '/' + path
+              : '/' + path,
+          title: firstLetterUpperCase(path.toString().replace('-', ' ')),
+        })
+        // remove additional path (the max level must be 2 + 1 (Home))
+        while(arr.length > 2){
+          arr.pop()
+        }
+        return arr
+      }, [])
+    }
     /* add to home link */
     breadcrumbs.unshift({
       to: '/',

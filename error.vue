@@ -6,23 +6,26 @@
     <NuxtLayout>
         <main>
             <h1>Oops, something went wrong with your request</h1>
-          <NuxtLink :to = "path" v-if="!!path">RETURN TO THE LAST AVAILABLE PAGE</NuxtLink>
+          <NuxtLink :to = "path" v-if="!!path">RETURN TO {{ lastAvailable }} PAGE</NuxtLink>
           <NuxtLink to = "/">RETURN TO HOME PAGE</NuxtLink>
         </main>
     </NuxtLayout>
 </template>
 
 <script setup>
+  import {getAvailablePaths} from "~/composables/utils";
+
+  let lastAvailable = ref("")
   const route = useRoute()
-  const availablePath = ["speakers", "lectures", "activities", "about", "contact", "daily-schedule"]
   const path = computed(() => {
     const pathArray = route.path.split('/')
-    if(availablePath.includes(pathArray[1])){
+    /* check path */
+    if(getAvailablePaths().includes(pathArray[1])){
+      lastAvailable.value = pathArray[1].toUpperCase().replace("-", " ")
       do{
         pathArray.pop()
       }while (pathArray.length > 2)
-      const p = pathArray.join('/')
-      return p
+      return pathArray.join('/')
     }
     else{
       return null
