@@ -63,7 +63,7 @@
         arr.push({
           title: sa.title,
           subtitle: sa.type + ', ' + sa.schedule.location,
-          link: '/activities/' + sa.alias,
+          link: '/socials/' + sa.alias,
           schedule: sa.schedule
         })
       }

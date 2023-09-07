@@ -17,7 +17,7 @@
         </div>
       <h1>Social Activities</h1>
       <div id="card-container">
-        <Card v-for = "social of filteredActivities" :title = "social.title" :subtitle = "social.type + ', ' + social.schedule.location" :link = "'/activities/' + social.alias" :img = "social.picture[0].url"/>
+        <Card v-for = "social of filteredActivities" :title = "social.title" :subtitle = "social.type + ', ' + social.schedule.location" :link = "'/socials/' + social.alias" :img = "social.picture[0].url"/>
       </div>
     </main>
 </template>

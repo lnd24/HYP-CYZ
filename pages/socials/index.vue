@@ -12,7 +12,7 @@
       </div>
         <h1>Social Activities</h1>
         <div id="card-container">
-            <Card v-for = "sa in filteredByDate" :title = "sa.title" :subtitle = "sa.type + ', ' + sa.schedule.location" :link = "'/activities/' + sa.alias" :img = "sa.picture[0].url" />
+            <Card v-for = "sa in filteredByDate" :title = "sa.title" :subtitle = "sa.type + ', ' + sa.schedule.location" :link = "'/socials/' + sa.alias" :img = "sa.picture[0].url" />
         </div>
     </main>
 </template>

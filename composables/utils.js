@@ -10,5 +10,5 @@ export function firstLetterUpperCase(text) {
 }
 
 export function getAvailablePaths() {
-    return ["speakers", "lectures", "activities", "about", "contact", "daily-schedule"]
+    return ["speakers", "lectures", "socials", "activities", "about", "contact", "daily-schedule"]
 }
