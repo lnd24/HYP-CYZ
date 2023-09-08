@@ -72,7 +72,6 @@
             arr.push(lecture)
           }
         }
-        lecture.speakers = getSpeakers(lecture)
       }
       // Returning the filtered list
       return arr
@@ -83,13 +82,11 @@
 
       const arr = []
       for(const l of filteredLectures.value) {
-        let speakers = []
-        speakers.push(getSpeakers(l))
-        const s = speakers.join(', ').toString()
-        arr.push(s)
+        arr.push(getSpeakers(l))
       }
       return arr
     })
+
 
     // Filtering the list of Social Activities
     const filteredActivities = computed(() => {
@@ -102,7 +99,7 @@
       // Filtering the list
       for(let sa of sactivities.value) {
         for(let s of sa.schedule){
-          if(sa.s.date === date.value){
+          if(s.date === date.value){
             arr.push(sa)
           }
         }

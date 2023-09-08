@@ -53,8 +53,8 @@
       // Activities' dates
       for(let sa of filtered.value) {
         for(let s of sa.schedule){
-          if(!arr.includes(sa.schedule.date)){
-            arr.push(sa.schedule.date)
+          if(!arr.includes(s.date)){
+            arr.push(s.date)
           }
         }
       }
@@ -72,7 +72,7 @@
       // Filtering the list
       for(let sa of filtered.value) {
         for(let s of sa.schedule){
-          if(sa.schedule.date === date.value){
+          if(s.date === date.value){
             arr.push(sa)
           }
         }

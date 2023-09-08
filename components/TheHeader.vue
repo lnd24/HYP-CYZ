@@ -6,7 +6,7 @@
         <NuxtLink to = "/">
           <img class="logo-img" src="~/assets/img/logo.png" alt = "home">
         </NuxtLink>
-        <nav>
+        <nav id="nav" >
             <NuxtLink to = "/about">ABOUT US</NuxtLink>
             <NuxtLink to = "/daily-schedule">DAILY SCHEDULE</NuxtLink>
             <NuxtLink to = "/speakers">SPEAKERS</NuxtLink>
@@ -29,7 +29,11 @@
     </header>
 </template>
 
+
+
 <script setup>
+
+
   function showChild() {
     const child = document.getElementById("nav_box")
     child.className = "over_class"
@@ -63,6 +67,10 @@
         gap: 30px;
         font-size: 16pt;
         font-weight: bold;
+    }
+
+    .hidden {
+      visibility: hidden;
     }
 
     .over_class {

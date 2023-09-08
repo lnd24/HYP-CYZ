@@ -29,7 +29,7 @@
       <div class="list-container">
 
 
-          <div class="member" v-for="(obj, i) of showThree" @click="changeIndex(i)" >
+          <div class="member" v-for="(obj, i) of objects" @click="changeIndex(i)" >
               <img class="small_img" :src="obj.img.url" :alt="obj.img.alt" />
             <div>
               <span>{{obj.title}}</span>
@@ -48,6 +48,7 @@
 <script setup>
     const props = defineProps(['objects'])
     const index = ref(0)
+    /*
     const showThree = computed(() => {
       const arr = []
           for(let i=-1; i<3; i++) {
@@ -62,6 +63,8 @@
           return arr
         }
     )
+
+     */
     function prevIndex()  {
       if(index.value === 0) {
         index.value = props.objects.length - 1;
@@ -78,6 +81,8 @@
     }
 
     function changeIndex(i) {
+      index.value = i
+      /*
       const temp = index.value + i - 1
       if(temp < 0 ){
         index.value = props.objects.length - 1
@@ -86,6 +91,8 @@
       }else {
         index.value = temp
       }
+
+       */
     }
 </script>
 

@@ -11,7 +11,7 @@
             CYZ Summer School
         </h1>
         <div class="lectures-container">
-          <BigCard :objects = "allLectures"/>
+          <BigCard :objects = "lastLectures"/>
         </div>
     </main>
 </template>
@@ -24,9 +24,9 @@
 
 <script setup>
   const {data: lectures} = useFetch('/api/lectures')
-  const allLectures = computed(()=>{
+  const lastLectures = computed(()=>{
     const arr = []
-    for(let l of lectures.value){
+    for(let l of lectures.value.slice(lectures.value.length-4, lectures.value.length)){
       arr.push({
         title: l.title,
         subtitle: getSpeakers(l),

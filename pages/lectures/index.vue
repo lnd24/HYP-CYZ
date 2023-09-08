@@ -87,12 +87,7 @@
 
       const arr = []
       for(const l of filteredByDate.value) {
-        let speakers = []
-        for(let s of l.speakers){
-          speakers.push(s.name + ' ' + s.surname)
-        }
-        const s = speakers.join(', ').toString()
-        arr.push(s)
+        arr.push(getSpeakers(l))
       }
 
       return arr
