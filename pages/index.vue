@@ -6,10 +6,13 @@
         <h2>
           Welcome!!!
         </h2>
-        <img id = "main-img" src = "~/assets/img/home-image.jpg" />
+        <img id = "main-img" src = "~/assets/img/home-image.jpg" alt="CYZ Summer School" />
         <h1>
             CYZ Summer School
         </h1>
+        <div class="lectures-container">
+          <BigCard :objects = "allLectures"/>
+        </div>
     </main>
 </template>
 
@@ -20,7 +23,26 @@
 </script>
 
 <script setup>
+  const {data: lectures} = useFetch('/api/lectures')
+  const allLectures = computed(()=>{
+    const arr = []
+    for(let l of lectures.value){
+      arr.push({
+        title: l.title,
+        subtitle: getSpeakers(l),
+        link: '/lectures/' + l.alias,
+        img: {
+          url: l.picture[0].url,
+          alt: l.alias.replace("-", " ")
+        }
+      })
+    }
+    return arr
+  })
+
   /* Head: title, description, site_name */
+  import BigCard from "~/components/BigCard.vue";
+
   useHead({
     title: "Home - CYZ Summer School",
     meta: [

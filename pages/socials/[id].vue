@@ -9,8 +9,8 @@
             <div id = "data-container">
                 <p class = "data">Title: <span>{{ activity.title }}</span></p>
                 <p class = "data">Type: <span>{{ activity.type }}</span></p>
-                <p class = "data">City: <span>{{ activity.schedule.location }}</span></p>
-                <p class = "data">Date: <span>{{ activity.schedule.date + ":  " + activity.schedule.startT + " - " + activity.schedule.endT }}</span></p>
+                <p class = "data">Schedule:</p><ul><li v-for = "s of activity.schedule">{{ s.date + ": &nbsp;" + s.startT + " - " + s.endT + ", " + s.location }}</li></ul>
+
             </div>
         </div>
       <h2>Description</h2>

@@ -17,7 +17,7 @@
         </div>
       <h1>Social Activities</h1>
       <div id="card-container">
-        <Card v-for = "social of filteredActivities" :title = "social.title" :subtitle = "social.type + ', ' + social.schedule.location" :link = "'/socials/' + social.alias" :img = "social.picture[0].url"/>
+        <Card v-for = "social of filteredActivities" :title = "social.title" :subtitle = "social.type + ', ' + social.schedule[0].location" :link = "'/socials/' + social.alias" :img = "social.picture[0].url"/>
       </div>
     </main>
 </template>
@@ -34,17 +34,18 @@
 
       /* add the choice to clean the filter */
       const arr = [""]
+      const activities = [...lectures.value, ...sactivities.value]
 
-      // Lectures' dates
-      for(let lecture of lectures.value) {
-        for(let s of lecture.schedule){
+      // Activities' dates
+      for(let a of activities) {
+        for(let s of a.schedule){
           if(!arr.includes(s.date)){
             arr.push(s.date)
           }
 
         }
       }
-
+      /*
       // Social Activities' dates
       for(let sa of sactivities.value) {
         if(!arr.includes(sa.schedule.date)){
@@ -52,9 +53,10 @@
         }
       }
 
+       */
+
       return arr.sort()
     })
-
     // Filtering the list of Lectures
     const filteredLectures = computed(() => {
       // Checking for values where the full list is provided
@@ -69,8 +71,8 @@
           if(s.date === date.value){
             arr.push(lecture)
           }
-
         }
+        lecture.speakers = getSpeakers(lecture)
       }
       // Returning the filtered list
       return arr
@@ -82,13 +84,10 @@
       const arr = []
       for(const l of filteredLectures.value) {
         let speakers = []
-        for(let s of l.speakers){
-          speakers.push(s.name + ' ' + s.surname)
-        }
+        speakers.push(getSpeakers(l))
         const s = speakers.join(', ').toString()
         arr.push(s)
       }
-
       return arr
     })
 
@@ -102,14 +101,16 @@
 
       // Filtering the list
       for(let sa of sactivities.value) {
-        if(sa.schedule.date === date.value){
-          arr.push(sa)
+        for(let s of sa.schedule){
+          if(sa.s.date === date.value){
+            arr.push(sa)
+          }
         }
       }
-
       // Returning the filtered list
       return arr
     })
+
 
     /* Head: title, site_name */
     useHead({

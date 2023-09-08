@@ -56,5 +56,11 @@
       display: inline;
       font-size: 12pt;
     }
+    .breadcrumb a:link {
+      color: #022338;
+    }
+    .breadcrumb a:visited{
+      color: #022338;
+    }
 
 </style>

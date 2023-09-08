@@ -1,4 +1,5 @@
 import { serverSupabaseClient } from '#supabase/server'
+import {fixTime} from "~/composables/utils";
 
 export default defineEventHandler(async (event) => {
     const id = event.context.params.id
@@ -10,6 +11,8 @@ export default defineEventHandler(async (event) => {
     if(error) {
         throw createError({statusCode: 400, statusMessage: error.message})
     }
+
+    fixTime(data)
 
     return data
 })

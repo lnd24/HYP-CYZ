@@ -3,7 +3,6 @@
 -->
 <template>
     <main>
-
       <div>
         <div class="form-container">
           <label for="daily-schedule">Daily Schedule : </label> <input id = "daily-schedule" type = 'date' placeholder = "Daily Schedule" v-model = "currentDate">
@@ -26,6 +25,8 @@
   const { data: lectures } = await useFetch('/api/lectures')
   const { data: sactivities } = await useFetch('/api/activities')
   const date = new Date();
+
+
   let day = date.getDate();
   // Fix day
   day = day<10 ? `0${day}`: day
@@ -59,14 +60,17 @@
     const arr = []
     // Filtering the list
     for(let sa of sactivities.value) {
-      if(sa.schedule.date === currentDate.value){
-        arr.push({
-          title: sa.title,
-          subtitle: sa.type + ', ' + sa.schedule.location,
-          link: '/socials/' + sa.alias,
-          schedule: sa.schedule
-        })
+      for(let s of sa.schedule) {
+        if(s.date === currentDate.value){
+          arr.push({
+            title: sa.title,
+            subtitle: sa.type + ', ' + s.location,
+            link: '/socials/' + sa.alias,
+            schedule: s
+          })
+        }
       }
+
     }
     // Returning the filtered list
     return arr

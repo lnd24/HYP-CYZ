@@ -1,5 +1,5 @@
 <!--
-    Page with the list of all the lectures.
+    Page with the list of all the social activities.
 -->
 <template>
     <main>
@@ -12,7 +12,7 @@
       </div>
         <h1>Social Activities</h1>
         <div id="card-container">
-            <Card v-for = "sa in filteredByDate" :title = "sa.title" :subtitle = "sa.type + ', ' + sa.schedule.location" :link = "'/socials/' + sa.alias" :img = "sa.picture[0].url" />
+            <Card v-for = "sa in filteredByDate" :title = "sa.title" :subtitle = "sa.type + ', ' + sa.schedule[0].location" :link = "'/socials/' + sa.alias" :img = "sa.picture[0].url" />
         </div>
     </main>
 </template>
@@ -52,8 +52,10 @@
       const arr = [""]
       // Activities' dates
       for(let sa of filtered.value) {
-        if(!arr.includes(sa.schedule.date)){
-          arr.push(sa.schedule.date)
+        for(let s of sa.schedule){
+          if(!arr.includes(sa.schedule.date)){
+            arr.push(sa.schedule.date)
+          }
         }
       }
         return arr.sort()
@@ -69,8 +71,10 @@
 
       // Filtering the list
       for(let sa of filtered.value) {
-        if(sa.schedule.date === date.value){
-          arr.push(sa)
+        for(let s of sa.schedule){
+          if(sa.schedule.date === date.value){
+            arr.push(sa)
+          }
         }
       }
       // Returning the filtered list

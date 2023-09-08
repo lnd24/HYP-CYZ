@@ -10,9 +10,9 @@
             <NuxtLink to = "/about">ABOUT US</NuxtLink>
             <NuxtLink to = "/daily-schedule">DAILY SCHEDULE</NuxtLink>
             <NuxtLink to = "/speakers">SPEAKERS</NuxtLink>
-            <div class="nav_parent" >
+            <div class="nav_parent" @mouseover="showChild" @mouseout="hideChild">
               <NuxtLink to = "/activities">ALL ACTIVITIES</NuxtLink>
-              <div class="nav_box">
+              <div id="nav_box" class="out_class">
                 <ul>
                   <li>
                     <NuxtLink to = "/lectures">LECTURES</NuxtLink>
@@ -28,6 +28,18 @@
         </nav>
     </header>
 </template>
+
+<script setup>
+  function showChild() {
+    const child = document.getElementById("nav_box")
+    child.className = "over_class"
+  }
+
+  function hideChild() {
+    const child = document.getElementById("nav_box")
+    child.className = "out_class"
+  }
+</script>
 
 <style>
     header
@@ -53,13 +65,27 @@
         font-weight: bold;
     }
 
-    .nav_box {
+    .over_class {
+      visibility: visible;
+      position: absolute;
+      display: block;
+      background: #022338;
+      right:150px;
+      min-width: 210px;
+      padding-top: 10px;
+    }
+
+    .out_class {
+      visibility: hidden;
       position: absolute;
       display: block;
     }
 
-    ul{
-      list-style: none;
+    .over_class ul{
+      list-style: none inside;
+      direction: ltr;
+      padding-left: 5px;
+      padding-right: 5px;
     }
 
 </style>
