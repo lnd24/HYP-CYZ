@@ -50,6 +50,10 @@
       title: "Our Speakers - CYZ Summer School",
       meta: [
         {
+          name: "description",
+          content: "This is the Speakers Page"
+        },
+        {
           name: "site_name",
           content: "CYZ Summer School"
         }

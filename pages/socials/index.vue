@@ -87,6 +87,10 @@
       title: "Our Social Activities - CYZ Summer School",
       meta: [
         {
+          name: "description",
+          content: "Social Activities List Page"
+        },
+        {
           name: "site_name",
           content: "CYZ Summer School"
         }

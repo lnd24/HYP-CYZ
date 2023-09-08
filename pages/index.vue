@@ -1,5 +1,5 @@
 <!--
-    Home page: Welcome
+    Home page: Welcome + Last Four Lectures
 -->
 <template>
     <main>
@@ -41,8 +41,6 @@
   })
 
   /* Head: title, description, site_name */
-  import BigCard from "~/components/BigCard.vue";
-
   useHead({
     title: "Home - CYZ Summer School",
     meta: [
@@ -53,6 +51,10 @@
       {
         name: "site_name",
         content: "CYZ Summer School"
+      },
+      {
+        name: "keywords",
+        content: "cyz, summer school"
       }
     ]
   })

@@ -45,8 +45,7 @@
         padding: 20px;
         border: 2px solid black;
         border-radius: 20px;
-        width: fit-content;
-        height: fit-content;
+        width: 300px;
     }
 
     .title

@@ -11,17 +11,24 @@
 -->
 <template>
     <div class="big_card">
-        <div class="image-container">
-            <img class="img" :src="objects[index].img.url" :alt="objects[index].img.alt" />
+
+        <div class="big_card_image-container">
+          <span class="button" @click="prevIndex"> &lt </span>
+          <img class="big_card_image" :src="'/img/' + objects[index].img.url" :alt="objects[index].img.alt" />
+          <span class="button" @click="nextIndex"> &gt </span>
         </div>
+
       <div class="data-container">
+
+
         <h1 class="title">{{ objects[index].title }}</h1>
         <h2 class="subtitle">{{ objects[index].subtitle }}</h2>
         <span class="button"><NuxtLink :to = "objects[index].link" >Details</NuxtLink></span>
       </div>
+
       <div class="list-container">
 
-        <button @click="prevIndex">prev</button>
+
           <div class="member" v-for="(obj, i) of showThree" @click="changeIndex(i)" >
               <img class="small_img" :src="obj.img.url" :alt="obj.img.alt" />
             <div>
@@ -30,7 +37,7 @@
               <span>{{obj.subtitle}}</span>
             </div>
           </div>
-        <button @click="nextIndex">next</button>
+
       </div>
 
 
@@ -83,24 +90,21 @@
 </script>
 
 <style>
-    .image-container
+    .big_card_image-container
     {
-        display: flex;
+        display: flow;
         justify-content: center;
         border: 2px midnightblue;
         border-radius: 10px;
         padding: 2px;
-        width: 250px;
-        height: 250px;
+        width: 100%
     }
 
-    .img
+    .big_card_image
     {
         vertical-align: middle;
-        max-width: 100%;
-        max-height: 100%;
         height: auto;
-        width: auto;
+        width: 1000px;
         margin: auto;
     }
 
@@ -135,5 +139,9 @@
     {
         font-size: 2em;
         font-weight: bold;
+    }
+
+    .button a{
+      background-color: #022338;
     }
 </style>

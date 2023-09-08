@@ -38,6 +38,21 @@
     const id = route.params.id
     const { data: lecture } = await useFetch('/api/lectures/' + id)
     const url = '/img/' + lecture.value.picture[0].url
+
+    /* Head: title, description, site_name */
+    useHead({
+      title: "Our Social Activities - CYZ Summer School",
+      meta: [
+        {
+          name: "description",
+          content: lecture.value.description
+        },
+        {
+          name: "site_name",
+          content: "CYZ Summer School"
+        }
+      ]
+    })
 </script>
 
 <style>

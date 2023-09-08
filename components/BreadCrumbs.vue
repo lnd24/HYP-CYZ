@@ -40,7 +40,7 @@
         return arr
       }, [])
     }
-    /* add to home link */
+    /* add the home link */
     breadcrumbs.unshift({
       to: '/',
       title: 'Home'

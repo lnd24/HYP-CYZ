@@ -61,7 +61,7 @@
     nav {
         display: flex;
         gap: 30px;
-        font-size: 17pt;
+        font-size: 16pt;
         font-weight: bold;
     }
 

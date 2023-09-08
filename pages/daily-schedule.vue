@@ -76,7 +76,7 @@
     return arr
   }
 
-  // activities list (lecture + social activity)
+  // sort activities list (lecture + social activity) by start time
   const filtered = computed(() => {
     const arr = [...filteredLectures(), ...filteredActivities()]
     arr.sort((a, b)=> {
@@ -92,6 +92,10 @@
   useHead({
     title: "Daily Schedule - CYZ Summer School",
     meta: [
+      {
+        name: "description",
+        content: "This is the Daily Schedule Page"
+      },
       {
         name: "site_name",
         content: "CYZ Summer School"

@@ -54,7 +54,7 @@
 
       // Add only the other speakers in the list
       for(let s of all.value) {
-        if(s.alias != id){
+        if(s.alias !== id){
           arr.push(s)
         }
 
@@ -62,6 +62,21 @@
 
       // Returning the list
       return arr
+    })
+
+    /* Head: title, description, site_name */
+    useHead({
+      title: "Our Social Activities - CYZ Summer School",
+      meta: [
+        {
+          name: "description",
+          content: speaker.value.description
+        },
+        {
+          name: "site_name",
+          content: "CYZ Summer School"
+        }
+      ]
     })
 
 </script>

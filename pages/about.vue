@@ -44,6 +44,10 @@
     title: "About Us - CYZ Summer School",
     meta: [
       {
+        name: "description",
+        content: "CYZ Summer School"
+      },
+      {
         name: "site_name",
         content: "CYZ Summer School"
       }
