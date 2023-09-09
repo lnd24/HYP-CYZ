@@ -12,7 +12,7 @@
       <span> {{ word }} </span>
         <h1>Speakers</h1>
         <div id="card-container">
-            <Card v-for = "speaker of filtered" :title = "speaker.name" :subtitle = "speaker.surname" :link = "'/speakers/' + speaker.alias" :img = speaker.photo[0].url />
+            <Card v-for = "speaker of filtered" :title = "speaker.name" :subtitle = "speaker.surname" :link = "'/speakers/' + speaker.alias" :img = speaker.photo />
         </div>
     </main>
 </template>

@@ -5,14 +5,11 @@
 <template>
     <main>
         <div class = "info-group">
-            <img id = "main-img" :src = "url" />
             <div id = "data-container">
-                <p class = "data">Title: <span>{{ lecture.title }}</span></p>
-                <p class = "data">Speakers: <span v-for="(s, index) in lecture.speakers">{{ s.name + " " + s.surname}}
-                  <span v-if="index < lecture.speakers.length - 1">, </span>
-                  </span>
+                <p class = "data">Title: <span>{{ lecture.title }}</span>  </p>
+                <p class = "data">Speakers: <span>{{ speakers }}</span>
                 </p>
-              <p class = "data">Schedule:</p><ul><li v-for = "s of lecture.schedule">{{ s.date + ": &nbsp;" + s.startT + " - " + s.endT + ", " + s.location }}</li></ul>
+              <p class = "data">Schedule: <span>{{ lecture.date + ": &nbsp;" + lecture.startT + " - " + lecture.endT + ", " + lecture.location }}</span> </p>
             </div>
         </div>
         <h2>Description</h2>
@@ -29,7 +26,6 @@
           <SmallCard v-for="s of lecture.speakers" :title = "s.name + ' ' + s.surname" :link = "'/speakers/' + s.alias" />
         </div>
       </div>
-
     </main>
 </template>
 
@@ -37,11 +33,14 @@
     const route = useRoute()
     const id = route.params.id
     const { data: lecture } = await useFetch('/api/lectures/' + id)
-    const url = '/img/' + lecture.value.picture[0].url
+    const speakers = computed(() => {
+      return getSpeakers(lecture.value)
+    })
+
 
     /* Head: title, description, site_name */
     useHead({
-      title: "Our Social Activities - CYZ Summer School",
+      title: lecture.value.title + " - CYZ Summer School",
       meta: [
         {
           name: "description",

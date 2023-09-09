@@ -4,20 +4,11 @@
 <template>
     <main>
         <div class = "info-group">
-            <img id = "main-img" :src = "url" />
+            <img id = "main-img" :src = "speaker.photo.url" :alt="speaker.photo.alt" />
             <div id = "data-container">
                 <p class = "data">Name: <span>{{ speaker.name }}</span></p>
                 <p class = "data">Surname: <span>{{ speaker.surname }}</span></p>
-                <p class = "data">Age: <span>{{ speaker.age }}</span></p>
-                <p class = "data">Email: <span>{{ speaker.email }}</span></p>
-                <p class = "data">Lectures: <span v-for="(l, index) in speaker.lectures">
-                  <span v-if = "index < speaker.lectures.length - 1">
-                  {{ l.title }},
-                  </span>
-                  <span v-else>
-                    {{ l.title}}
-                  </span>
-                </span></p>
+                <p class = "data">Lectures: <span>{{ lectures }}</span>  </p>
             </div>
         </div>
         <h2>Short CV</h2>
@@ -46,7 +37,9 @@
     // useRuntimeConfig provide us with environment variables set up in the nuxtconfig file
     const { data: speaker } = await useFetch('/api/speakers/' + id)
     const { data: all } = await useFetch('/api/speakers/')
-    const url = '/img/' + speaker.value.photo[0].url
+    const lectures = computed(() => {
+      return getLectures(speaker.value)
+    })
 
     const others = computed(() => {
 
@@ -66,7 +59,7 @@
 
     /* Head: title, description, site_name */
     useHead({
-      title: "Our Social Activities - CYZ Summer School",
+      title: speaker.value.name + " " + speaker.value.surname + " - CYZ Summer School",
       meta: [
         {
           name: "description",

@@ -12,7 +12,7 @@
       </div>
         <h1>Social Activities</h1>
         <div id="card-container">
-            <Card v-for = "sa in filteredByDate" :title = "sa.title" :subtitle = "sa.type + ', ' + sa.schedule[0].location" :link = "'/socials/' + sa.alias" :img = "sa.picture[0].url" />
+            <Card v-for = "sa in filteredByDate" :title = "sa.title" :subtitle = "sa.location" :link = "'/socials/' + sa.alias" :img = "sa.picture" />
         </div>
     </main>
 </template>
@@ -52,11 +52,10 @@
       const arr = [""]
       // Activities' dates
       for(let sa of filtered.value) {
-        for(let s of sa.schedule){
-          if(!arr.includes(s.date)){
-            arr.push(s.date)
-          }
+        if(!arr.includes(sa.date)){
+          arr.push(sa.date)
         }
+
       }
         return arr.sort()
     })
@@ -71,10 +70,8 @@
 
       // Filtering the list
       for(let sa of filtered.value) {
-        for(let s of sa.schedule){
-          if(s.date === date.value){
-            arr.push(sa)
-          }
+        if(sa.date === date.value){
+          arr.push(sa)
         }
       }
       // Returning the filtered list

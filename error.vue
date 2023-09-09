@@ -1,6 +1,7 @@
 <!--
     This is an error page.
     Whenever a route that doesn't exist is called, this page will be shown.
+    Possibility to return to last available page (second level path) or to Home page
 -->
 <template>
     <NuxtLayout>
@@ -13,7 +14,6 @@
 </template>
 
 <script setup>
-  import {getAvailablePaths} from "~/composables/utils";
 
   const lastAvailable = ref("")
   const route = useRoute()

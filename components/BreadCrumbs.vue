@@ -13,7 +13,6 @@
 </template>
 
 <script setup>
-  import {firstLetterUpperCase} from "~/composables/utils";
 
   const route = useRoute()
   const getBreadcrumbs = computed(() => {

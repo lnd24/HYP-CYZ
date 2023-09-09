@@ -13,7 +13,7 @@
           <h3> No Activity for {{ currentDate }} </h3>
         </div>
         <div class = "info-group" v-for="a of filtered">
-          <span> {{ a.schedule.startT + " - " + a.schedule.endT }} </span>
+          <span> {{ a.schedule }} </span>
           <SmallCard :title = "a.title" :subtitle = "a.subtitle" :link = "a.link" />
         </div>
       </div>
@@ -40,16 +40,13 @@
     const arr = []
     // Filtering the list (i : index of the lecture schedule)
     for(let lecture of lectures.value) {
-      for(let s of lecture.schedule){
-        if(s.date === currentDate.value){
-          arr.push({
-            title: lecture.title,
-            subtitle: s.location,
-            link: '/lectures/' + lecture.alias,
-            schedule: s
-          })
-        }
-
+      if(lecture.date === currentDate.value){
+        arr.push({
+          title: lecture.title,
+          subtitle: lecture.location,
+          link: '/lectures/' + lecture.alias,
+          schedule: lecture.startT + ' - ' + lecture.endT
+        })
       }
     }
 
@@ -60,17 +57,14 @@
     const arr = []
     // Filtering the list
     for(let sa of sactivities.value) {
-      for(let s of sa.schedule) {
-        if(s.date === currentDate.value){
+        if(sa.date === currentDate.value){
           arr.push({
             title: sa.title,
-            subtitle: sa.type + ', ' + s.location,
+            subtitle: sa.location,
             link: '/socials/' + sa.alias,
-            schedule: s
+            schedule: sa.startT + ' - ' + sa.endT
           })
         }
-      }
-
     }
     // Returning the filtered list
     return arr
@@ -80,7 +74,7 @@
   const filtered = computed(() => {
     const arr = [...filteredLectures(), ...filteredActivities()]
     arr.sort((a, b)=> {
-      if(a.schedule.startT < b.schedule.startT){
+      if(a.startT < b.startT){
         return -1;
       }
       return 0;

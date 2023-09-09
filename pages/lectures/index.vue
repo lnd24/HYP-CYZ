@@ -12,7 +12,7 @@
       </div>
         <h1>Lectures</h1>
         <div id="card-container">
-            <Card v-for = "(lecture, index) in filteredByDate" :title = "lecture.title" :subtitle = "speakers[index]" :link = "'/lectures/' + lecture.alias" :img = "lecture.picture[0].url" />
+            <SmallCard v-for = "(lecture, index) in filteredByDate" :title = "lecture.title" :subtitle = "speakers[index]" :link = "'/lectures/' + lecture.alias"/>
         </div>
     </main>
 </template>
@@ -36,8 +36,8 @@
 
       // Filtering the list
       for(let lecture of lectures.value) {
-        //search the keyword in lectures' title (all in Uppercase)
-        if(lecture.title.toUpperCase().includes(word.value.toUpperCase())){
+        //search the keyword in lectures' title or speakers (all in Uppercase)
+        if(lecture.title.toUpperCase().includes(word.value.toUpperCase()) || getSpeakers(lecture).toUpperCase().includes(word.value.toUpperCase())){
           arr.push(lecture)
         }
 
@@ -52,10 +52,8 @@
       const arr = [""]
       // Lectures' dates
       for(let lecture of filtered.value) {
-        for(let s of lecture.schedule){
-          if(!arr.includes(s.date)){
-            arr.push(s.date)
-          }
+        if(!arr.includes(lecture.date)){
+          arr.push(lecture.date)
         }
       }
         return arr.sort()
@@ -71,11 +69,8 @@
 
       // Filtering the list
       for(let lecture of filtered.value) {
-        for(let s of lecture.schedule){
-          if(s.date === date.value){
-            arr.push(lecture)
-          }
-
+        if(lecture.date === date.value){
+          arr.push(lecture)
         }
       }
       // Returning the filtered list

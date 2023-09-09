@@ -10,7 +10,7 @@
 <template>
     <div class="card">
         <div class="image-container">
-            <img class="img" :src="image" />
+            <img class="img" :src="img.url" :alt="img.alt"/>
         </div>
         <span class="title">{{ title }}</span>
         <span class="subtitle">{{ subtitle }}</span>
@@ -20,7 +20,6 @@
 
 <script setup>
     const props = defineProps(['title', 'subtitle', 'link', 'img'])
-    const image = '/img/' + props.img
 </script>
 
 <style>

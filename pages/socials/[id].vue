@@ -5,11 +5,10 @@
 <template>
     <main>
         <div class = "info-group">
-            <img id = "main-img" :src = "url" />
+            <img id = "main-img" :src = "activity.picture.url" :alt = "activity.picture.alt" />
             <div id = "data-container">
                 <p class = "data">Title: <span>{{ activity.title }}</span></p>
-                <p class = "data">Type: <span>{{ activity.type }}</span></p>
-                <p class = "data">Schedule:</p><ul><li v-for = "s of activity.schedule">{{ s.date + ": &nbsp;" + s.startT + " - " + s.endT + ", " + s.location }}</li></ul>
+                <p class = "data">Schedule: <span>{{ activity.date + ": &nbsp;" + activity.startT + " - " + activity.endT + ", " + activity.location }}</span> </p>
 
             </div>
         </div>
@@ -29,12 +28,11 @@
   const id = route.params.id
   // useRuntimeConfig provide us with environment variables set up in the nuxtconfig file
   const { data: activity } = await useFetch('/api/activities/' + id)
-  const url = '/img/' + activity.value.picture[0].url
 
 
   /* Head: title, description, site_name */
   useHead({
-    title: "Our Social Activities - CYZ Summer School",
+    title: activity.value.title + " - CYZ Summer School",
     meta: [
       {
         name: "description",

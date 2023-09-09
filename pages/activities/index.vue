@@ -12,12 +12,15 @@
       </div>
       <span> {{ date }} </span>
         <h1>Lectures</h1>
+      <h3 v-if="filteredLectures.length===0"> No Lecture on {{ date }} </h3>
         <div id="card-container">
-            <Card v-for = "(lecture, index) in filteredLectures" :title = "lecture.title" :subtitle = "speakers[index]" :link = "'/lectures/' + lecture.alias" :img = "lecture.picture[0].url" />
+            <SmallCard v-for = "(lecture, index) in filteredLectures" :title = "lecture.title" :subtitle = "speakers[index]" :link = "'/lectures/' + lecture.alias" />
+
         </div>
       <h1>Social Activities</h1>
+      <h3 v-if="filteredActivities.length===0"> No Social Activity on {{ date }} </h3>
       <div id="card-container">
-        <Card v-for = "social of filteredActivities" :title = "social.title" :subtitle = "social.type + ', ' + social.schedule[0].location" :link = "'/socials/' + social.alias" :img = "social.picture[0].url"/>
+        <Card v-for = "social of filteredActivities" :title = "social.title" :subtitle = "social.location" :link = "'/socials/' + social.alias" :img = "social.picture"/>
       </div>
     </main>
 </template>
@@ -27,7 +30,7 @@
     const { data: lectures } = await useFetch('/api/lectures')
     const { data: sactivities } = await useFetch('/api/activities')
 
-    const date = ref(0);
+    const date = ref("");
 
     /* Get all the available dates (of lectures and social activities) */
     const allDates = computed(() => {
@@ -38,23 +41,10 @@
 
       // Activities' dates
       for(let a of activities) {
-        for(let s of a.schedule){
-          if(!arr.includes(s.date)){
-            arr.push(s.date)
-          }
-
+        if(!arr.includes(a.date)){
+            arr.push(a.date)
         }
       }
-      /*
-      // Social Activities' dates
-      for(let sa of sactivities.value) {
-        if(!arr.includes(sa.schedule.date)){
-          arr.push(sa.schedule.date)
-        }
-      }
-
-       */
-
       return arr.sort()
     })
     // Filtering the list of Lectures
@@ -67,10 +57,8 @@
 
       // Filtering the list
       for(let lecture of lectures.value) {
-        for(let s of lecture.schedule){
-          if(s.date === date.value){
-            arr.push(lecture)
-          }
+        if(lecture.date === date.value){
+          arr.push(lecture)
         }
       }
       // Returning the filtered list
@@ -79,14 +67,12 @@
 
     // Speakers of the filtered lectures
     const speakers = computed(() => {
-
       const arr = []
       for(const l of filteredLectures.value) {
         arr.push(getSpeakers(l))
       }
       return arr
     })
-
 
     // Filtering the list of Social Activities
     const filteredActivities = computed(() => {
@@ -98,10 +84,8 @@
 
       // Filtering the list
       for(let sa of sactivities.value) {
-        for(let s of sa.schedule){
-          if(s.date === date.value){
-            arr.push(sa)
-          }
+        if(sa.date === date.value){
+          arr.push(sa)
         }
       }
       // Returning the filtered list

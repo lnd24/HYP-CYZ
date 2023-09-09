@@ -9,14 +9,26 @@ export function firstLetterUpperCase(text) {
     return words.join(" ")
 }
 
+// Second Level Path
 export function getAvailablePaths() {
     return ["speakers", "lectures", "socials", "activities", "about", "contact", "daily-schedule"]
 }
 
-export function fixTime(activity) {
-    for(let s of activity.schedule){
-        s.startT = s.startT.substring(0,5)
-        s.endT = s.endT.substring(0,5)
+/* for Lecture object: Get Lecture's speakers as a single String */
+export function getSpeakers(lecture) {
+    const arr = []
+    for(let sp of lecture.speakers){
+        arr.push(sp.name + " " + sp.surname)
     }
+    return arr.join(", ")
+}
 
+/* for Speaker object: Get Speaker's lecture as a single String */
+
+export function getLectures(speaker) {
+    const arr = []
+    for (let l of speaker.lectures){
+        arr.push(l.title)
+    }
+    return arr.join(", ")
 }
