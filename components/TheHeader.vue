@@ -30,7 +30,7 @@
         <li><NuxtLink to = "/contact">Contact Us</NuxtLink></li>
       </ul>
     </nav>
-    <img class="menu" src="@/assets/img/menu.png" @click="showMenu">
+    <img class="menu" :src="menu_img" @click="showMenu">
   </header>
 </template>
 
@@ -38,7 +38,7 @@
 
 <script setup>
 const menu_class = ref("hidden")
-const menu_img = ref("menu")
+const menu_img = ref("/icon/menu.png")
 const child_class = ref("out_class")
 
 function showChild() {
@@ -52,10 +52,10 @@ function hideChild() {
 function showMenu() {
   if(menu_class.value === "hidden"){
     menu_class.value = "shown"
-    menu_img.src = "@/assets/img/menu_opened.png"
+    menu_img.value = "/icon/menu_opened.png"
   }else {
     menu_class.value = "hidden"
-    menu_img.src = "@/assets/img/menu.png"
+    menu_img.value = "/icon/menu.png"
   }
 
 }
@@ -99,7 +99,6 @@ function showMenu() {
     margin: 0;
     padding: 20px;
   }
-
 
   .over_class {
     visibility: visible;
