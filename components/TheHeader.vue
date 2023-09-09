@@ -30,7 +30,7 @@
         <li><NuxtLink to = "/contact">Contact Us</NuxtLink></li>
       </ul>
     </nav>
-    <button class="menu" @click="showMenu">{{ button }}</button>
+    <img class="menu" src="@/assets/img/menu.png" @click="showMenu">
   </header>
 </template>
 
@@ -38,9 +38,8 @@
 
 <script setup>
 const menu_class = ref("hidden")
-const button = ref("Menu")
+const menu_img = ref("menu")
 const child_class = ref("out_class")
-
 
 function showChild() {
   child_class.value = "over_class"
@@ -53,10 +52,10 @@ function hideChild() {
 function showMenu() {
   if(menu_class.value === "hidden"){
     menu_class.value = "shown"
-    button.value = "X"
+    menu_img.src = "@/assets/img/menu_opened.png"
   }else {
     menu_class.value = "hidden"
-    button.value = "Menu"
+    menu_img.src = "@/assets/img/menu.png"
   }
 
 }
@@ -132,6 +131,7 @@ function showMenu() {
 
     .menu {
       display: block;
+      max-width: 50px;
     }
 
     .shown {
