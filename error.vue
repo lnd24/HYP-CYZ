@@ -4,7 +4,7 @@
 -->
 <template>
     <NuxtLayout>
-        <main>
+        <main class="error">
             <h1>Oops, something went wrong with your request</h1>
           <NuxtLink :to = "path" v-if="!!path">RETURN TO {{ lastAvailable }} PAGE</NuxtLink>
           <NuxtLink to = "/">RETURN TO HOME PAGE</NuxtLink>
@@ -15,7 +15,7 @@
 <script setup>
   import {getAvailablePaths} from "~/composables/utils";
 
-  let lastAvailable = ref("")
+  const lastAvailable = ref("")
   const route = useRoute()
   const path = computed(() => {
     const pathArray = route.path.split('/')
@@ -34,3 +34,9 @@
 
 
 </script>
+
+<style>
+.error a{
+  color: #022338;
+}
+</style>
