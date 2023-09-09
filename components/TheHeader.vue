@@ -4,30 +4,30 @@
 <template>
   <header>
     <NuxtLink to = "/">
-      <img class="logo-img" src="~/assets/img/logo.png" alt = "home">
+      <img class="logo-img" src="~/assets/img/logo.png" alt = "Home">
     </NuxtLink>
     <nav id="nav" >
       <ul :class="menu_class">
-        <li><NuxtLink to = "/about">ABOUT US</NuxtLink></li>
-        <li><NuxtLink to = "/daily-schedule">DAILY SCHEDULE</NuxtLink></li>
-        <li><NuxtLink to = "/speakers">SPEAKERS</NuxtLink></li>
+        <li><NuxtLink to = "/about">About Us</NuxtLink></li>
+        <li><NuxtLink to = "/daily-schedule">Daily Schedule</NuxtLink></li>
+        <li><NuxtLink to = "/speakers">Speakers</NuxtLink></li>
 
         <div class="nav_parent" @mouseover="showChild" @mouseout="hideChild">
-          <li><NuxtLink to = "/activities">ALL ACTIVITIES</NuxtLink></li>
+          <li><NuxtLink to = "/activities">All Activities</NuxtLink></li>
           <div id="nav_box" :class="child_class">
             <ul>
-              <li>
-                <NuxtLink to = "/lectures">LECTURES</NuxtLink>
+              <li id="drop_down">
+                <NuxtLink to = "/lectures">Lectures</NuxtLink>
               </li>
-              <li>
-                <NuxtLink to = "/socials">SOCIAL ACTIVITIES</NuxtLink>
+              <li id="drop_down">
+                <NuxtLink to = "/socials">Social Activities</NuxtLink>
               </li>
             </ul>
 
           </div>
         </div>
 
-        <li><NuxtLink to = "/contact">CONTACT US</NuxtLink></li>
+        <li><NuxtLink to = "/contact">Contact Us</NuxtLink></li>
       </ul>
     </nav>
     <button class="menu" @click="showMenu">{{ button }}</button>
@@ -63,23 +63,30 @@ function showMenu() {
 </script>
 
 <style>
+
   header
   {
-    background-color: #022338;
+    background-color: #192B59;
     padding: 0 20px 0 20px;
     margin-bottom: 5px;
-    border-bottom: 5px darkblue;
+    border-bottom: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
+  .logo-img {
+    max-height: 120px;
+  }
 
   nav {
     display: flex;
     gap: 30px;
-    font-size: 16pt;
-    font-weight: bold;
+    font-size: 1em;
+  }
+
+  nav li {
+    padding: 23px;
   }
 
   nav ul {
@@ -89,16 +96,17 @@ function showMenu() {
     padding: 0;
   }
 
-  nav li {
-    padding: 10px;
+  #drop_down {
+    margin: 0;
+    padding: 20px;
   }
+
 
   .over_class {
     visibility: visible;
     position: absolute;
     display: block;
-    background: #022338;
-    right: 10%;
+    background: #192B59;
     padding-top: 10px;
   }
 
@@ -130,7 +138,8 @@ function showMenu() {
       display: block;
       position: absolute;
       flex-direction: column;
-      background: #022338;
+      background: #192B59;
+      max-width: max-content;
     }
 
     .hidden {
@@ -142,8 +151,13 @@ function showMenu() {
       position: relative;
       max-width: min-content;
       display: block;
-      background: #022338;
-      padding-top: 10px;
+      left: 25%;
+      background: #192B59;
+    }
+
+    #drop_down {
+      margin: 8px;
+      padding: 8px;
     }
 
 
