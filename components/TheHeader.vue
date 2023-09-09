@@ -75,7 +75,7 @@ function showMenu() {
   }
 
   .logo-img {
-    max-height: 120px;
+    max-height: 100px;
   }
 
   nav {
