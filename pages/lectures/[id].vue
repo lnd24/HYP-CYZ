@@ -1,13 +1,14 @@
 <!--
-    Page description for a single dog.
-    As described in the SmallCard component, the same component was used for both Dog and Location since they have the same structure.
+    Page description for a single lecture: title, speakers, schedule
+      show also the other lecture of this lecture's speakers
 -->
 <template>
     <main>
         <div class = "info-group">
             <div id = "data-container">
                 <p class = "data">Title: <span>{{ lecture.title }}</span>  </p>
-                <p class = "data">Speakers: <span>{{ speakers }}</span>
+                <p class = "data">Speakers: <span v-for="(s,index) in lecture.speakers"><NuxtLink :to="'/speakers/' + s.alias">{{ s.name +' '+ s.surname }}</NuxtLink>
+                  <span v-if="index < lecture.speakers.length-1">, </span> </span>
                 </p>
               <p class = "data">Schedule: <span>{{ lecture.date + ": &nbsp;" + lecture.startT + " - " + lecture.endT + ", " + lecture.location }}</span> </p>
             </div>
@@ -21,9 +22,9 @@
         <p id = "description" v-html = "newLineOnFullStop(lecture.description)"></p>
 
       <div>
-        <h3>More Info about the Speakers</h3>
+        <h3>You could be interested in these lectures:</h3>
         <div class = "info-group">
-          <SmallCard v-for="s of lecture.speakers" :title = "s.name + ' ' + s.surname" :link = "'/speakers/' + s.alias" />
+          <SmallCard v-for="l of otherLectures" :title = "l.title" :link = "'/lectures/' + l.alias" />
         </div>
       </div>
     </main>
@@ -33,8 +34,18 @@
     const route = useRoute()
     const id = route.params.id
     const { data: lecture } = await useFetch('/api/lectures/' + id)
-    const speakers = computed(() => {
-      return getSpeakers(lecture.value)
+
+    /* Other lectures of this lecture's speakers */
+    const otherLectures = computed(() => {
+      const arr = []
+      for(let s of lecture.value.speakers){
+        for(let l of s.lectures){
+          if(l.alias !== id){
+            arr.push(l)
+          }
+        }
+      }
+      return arr
     })
 
 
@@ -79,6 +90,10 @@
     .data {
         font-weight: bolder;
         font-size: 20pt
+    }
+
+    .data a {
+      color: #022338;
     }
 
     .data span {

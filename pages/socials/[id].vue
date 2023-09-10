@@ -1,6 +1,6 @@
 <!--
-    Page description for a single location.
-    As described in the SmallCard component, the same component was used for both Dog and Location since they have the same structure.
+    Page description for a single social activity: image, title, schedule, description
+
 -->
 <template>
     <main>

@@ -1,5 +1,5 @@
 <!--
-    Page with the list of all the lectures.
+    Page with the list of all the lectures: Searcher by lecture's title or by lecture's speaker + Data Filter
 -->
 <template>
     <main>

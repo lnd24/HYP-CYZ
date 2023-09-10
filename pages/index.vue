@@ -1,5 +1,5 @@
 <!--
-    Home page: Welcome + Last Four Lectures
+    Home page: Welcome + Social Activities List
 -->
 <template>
     <main>

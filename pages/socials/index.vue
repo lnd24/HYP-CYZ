@@ -1,5 +1,5 @@
 <!--
-    Page with the list of all the social activities.
+    Page with the list of all the social activities + Searcher and Data Filter
 -->
 <template>
     <main>

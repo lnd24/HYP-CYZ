@@ -5,7 +5,7 @@
     - title: main information to display
     - subtitle: second information to display
     - link: link to the page description
-    - img: image to show
+    - img: {url, alt} image to show
 -->
 <template>
     <div class="card">

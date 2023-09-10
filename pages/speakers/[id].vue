@@ -1,5 +1,6 @@
 <!--
-    Page description for a single speaker.
+    Page description for a single speaker: photo, name, surname, lectures, short CV
+      show also the other speakers of the summer school
 -->
 <template>
     <main>
@@ -53,7 +54,7 @@
           arr.push(s)
         }
       }
-      // Returning the list
+      // Returning the list of arrays of max 5 speakers
       return showN(arr, 5)
     })
 

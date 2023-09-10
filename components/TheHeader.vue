@@ -124,7 +124,7 @@ function showMenu() {
     display: none;
   }
 
-  @media screen and (max-width: 1064px){
+  @media screen and (max-width: 850px){
 
     .menu {
       display: block;

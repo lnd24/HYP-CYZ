@@ -1,5 +1,5 @@
 <!--
-    Page with the list of all the speakers.
+    Page with the list of all the speakers + Searcher
 -->
 <template>
     <main>

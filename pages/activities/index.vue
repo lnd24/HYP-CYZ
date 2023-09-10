@@ -1,5 +1,6 @@
 <!--
     Page with the list of all the activities (2 Lists): Lectures, Social Activities
+    Filter by Date
 -->
 <template>
     <main>

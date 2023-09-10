@@ -15,9 +15,7 @@
     </div>
     <div :class = "{'info-group': !isReverse, 'reverse-info-group': isReverse}">
         <img class = "main-img" :src = "src" />
-        <p>
-           {{ description }}
-        </p>
+      <p v-html = "newLineOnFullStop( description )" />
     </div>
 </template>
 
@@ -29,6 +27,7 @@
         - type: type of the prop
         - default: default value of the prop when it is not provided
     */
+
     defineProps({
         isReverse: {
             type: Boolean,

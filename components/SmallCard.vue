@@ -1,6 +1,6 @@
 <!--
-    Smaller card to display information in the information page. The difference with the card component is that there is no image here.
-    Since the information shown can be categorized into title and subtitle, it was preferred to use only one component for both dogs and location.
+    Smaller card to display information in the information page.
+    The difference with the card component is that there is no image here.
 
     PROPS:
     - title: main information to display

@@ -2,10 +2,7 @@
     About us page
 -->
 <template>
-    <!--
-        Instead of having the two structures written directly on the page, it was preferred to use components as they had the same layout.
-        This also allows to have a much cleaner and easy to read 'code'
-    -->
+
     <main>
       <h1>About Us</h1>
 
