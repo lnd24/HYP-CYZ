@@ -9,7 +9,6 @@
         <select id = "date-filter" v-model = "date">
           <option v-for="d of allDates" :value="d"> {{ d }} </option>
         </select>
-        <div> {{ allDates }} </div>
       </div>
       <span> {{ date }} </span>
         <h1>Lectures</h1>

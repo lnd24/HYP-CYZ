@@ -3,10 +3,10 @@
 -->
 <template>
   <header>
-    <NuxtLink to = "/">
+    <NuxtLink to = "/" @click="hideMenu">
       <img class="logo-img" src="~/assets/img/logo.png" alt = "Home">
     </NuxtLink>
-    <nav id="nav" >
+    <nav id="nav" @click="hideMenu">
       <ul :class="menu_class">
         <li><NuxtLink to = "/about">About Us</NuxtLink></li>
         <li><NuxtLink to = "/daily_schedule">Daily Schedule</NuxtLink></li>
@@ -54,10 +54,14 @@ function showMenu() {
     menu_class.value = "shown"
     menu_img.value = "/icon/menu_opened.png"
   }else {
-    menu_class.value = "hidden"
-    menu_img.value = "/icon/menu.png"
+    hideMenu()
   }
 
+}
+
+function hideMenu() {
+  menu_class.value = "hidden"
+  menu_img.value = "/icon/menu.png"
 }
 </script>
 

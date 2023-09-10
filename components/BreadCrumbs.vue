@@ -5,7 +5,8 @@
 <template>
     <ul class="breadcrumb">
         <li class="breadcrumb" v-for="(crumb,index) of getBreadcrumbs">
-          <NuxtLink :to = "crumb.to"><span>{{ crumb.title }}</span></NuxtLink>
+          <span v-if="index < getBreadcrumbs.length - 1"><NuxtLink :to = "crumb.to">{{ crumb.title }}</NuxtLink></span>
+          <span v-else class="position"><NuxtLink :to = "crumb.to">{{ crumb.title }}</NuxtLink></span>
           <span v-if="index < (getBreadcrumbs.length - 1 < 2 ? getBreadcrumbs.length - 1 : 2)">  >  </span>
         </li>
     </ul>
@@ -52,7 +53,7 @@
 
     .breadcrumb {
       display: inline;
-      padding: 15px 0 15px 25px;
+      padding: 15px 0 15px 0;
       font-size: 14pt;
       background-color: #234975;
       color: dimgrey;
@@ -60,11 +61,17 @@
       margin-block-end: 0;
 
     }
+    .breadcrumb span {
+      padding: 0 0 0 25px;
+    }
     .breadcrumb a:link {
       color: #ffffff;
     }
     .breadcrumb a:visited{
       color: #ffffff;
+    }
+    .position a {
+      color: red !important;
     }
 
 </style>
