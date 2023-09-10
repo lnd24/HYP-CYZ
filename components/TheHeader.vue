@@ -9,7 +9,7 @@
     <nav id="nav" >
       <ul :class="menu_class">
         <li><NuxtLink to = "/about">About Us</NuxtLink></li>
-        <li><NuxtLink to = "/daily-schedule">Daily Schedule</NuxtLink></li>
+        <li><NuxtLink to = "/daily_schedule">Daily Schedule</NuxtLink></li>
         <li><NuxtLink to = "/speakers">Speakers</NuxtLink></li>
 
         <div class="nav_parent" @mouseover="showChild" @mouseout="hideChild">

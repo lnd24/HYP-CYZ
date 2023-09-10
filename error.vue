@@ -21,7 +21,7 @@
     const pathArray = route.path.split('/')
     /* check path */
     if(getAvailablePaths().includes(pathArray[1])){
-      lastAvailable.value = pathArray[1].toUpperCase().replace("-", " ")
+      lastAvailable.value = pathArray[1].toUpperCase().replaceAll("_", " ")
       do{
         pathArray.pop()
       }while (pathArray.length > 2)

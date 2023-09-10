@@ -78,10 +78,10 @@
   const filtered = computed(() => {
     const arr = [...filteredLectures(), ...filteredActivities()]
     arr.sort((a, b)=> {
-      if(a.startT < b.startT){
+      if(a.schedule < b.schedule){
         return -1;
       }
-      return 0;
+      return 1;
     })
     return arr
   })

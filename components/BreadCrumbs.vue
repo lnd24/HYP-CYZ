@@ -30,7 +30,7 @@
           to: !!arr[idx - 1]
               ? arr[idx - 1].to + '/' + path
               : '/' + path,
-          title: firstLetterUpperCase(path.toString().replace('-', ' ')),
+          title: firstLetterUpperCase(path.toString().replaceAll('_', ' ')),
         })
         // remove additional path (the max level must be 2 + 1 (Home))
         while(arr.length > 2){

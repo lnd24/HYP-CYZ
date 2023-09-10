@@ -54,7 +54,7 @@
         }
       }
       // Returning the list
-      return showFive(arr)
+      return showN(arr, 5)
     })
 
     function changeIndex(value) {

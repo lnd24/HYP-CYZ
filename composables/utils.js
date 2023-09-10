@@ -11,7 +11,7 @@ export function firstLetterUpperCase(text) {
 
 // Second Level Path
 export function getAvailablePaths() {
-    return ["speakers", "lectures", "socials", "activities", "about", "contact", "daily-schedule"]
+    return ["speakers", "lectures", "socials", "activities", "about", "contact", "daily_schedule"]
 }
 
 /* for Lecture object: Get Lecture's speakers as a single String */
@@ -33,12 +33,12 @@ export function getLectures(speaker) {
     return arr.join(", ")
 }
 
-/* split an array into arrays of 5 elements */
-export function showFive(array) {
+/* split an array into arrays of n elements */
+export function showN(array, n) {
     const arr = []
 
-    for (let i = 0; i < array.length; i = i + 5) {
-        arr.push(array.slice(i,i+5))
+    for (let i = 0; i < array.length; i = i + n) {
+        arr.push(array.slice(i,i+n))
     }
     return arr
 }
