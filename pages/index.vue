@@ -73,6 +73,7 @@
       height: 100%;
     }
 
+
     #main-img {
       min-width: 100%;
       min-height: 100%;
@@ -99,26 +100,28 @@
 
     .title-container {
       position: absolute;
-      top: 16vw;
-      left: 10%;
+      top: max(18vw, 150px);
+      left: 13%;
       text-align: left;
       font-family: "Century Gothic", sans-serif;
       font-weight: bold;
-      font-size: 4vw;
+      font-size: 3.5vw;
       color: aliceblue;
     }
 
     #loc-icon {
+      padding-top: 40px;
       position: absolute;
       z-index: 1;
       left: 15%;
-      top: 25vw;
+      top: max(27vw, 160px);
       width: 2.5vw;
     }
 
     .location-container {
+      padding-top: 40px;
       position: absolute;
-      top: 25vw;
+      top: max(27vw, 160px);
       left: 20%;
       text-align: left;
       font-family: "Century Gothic", sans-serif;
@@ -128,16 +131,18 @@
     }
 
     #time-icon {
+      padding-top: 40px;
       position: absolute;
       z-index: 1;
       left: 15.3%;
-      top: 31.1vw;
+      top: max(34.1vw, 190px);
       width: 2.2vw;
     }
 
     .time-container {
+      padding-top: 40px;
       position: absolute;
-      top: 31vw;
+      top: max(34vw, 190px);
       left: 20%;
       text-align: left;
       font-family: "Century Gothic", sans-serif;
