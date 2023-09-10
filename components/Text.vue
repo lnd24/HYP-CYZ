@@ -10,11 +10,10 @@
         This is an example of class/style binding. It allows to change dynamically the style of an element based on the boolean value.
         There is also another way to achieve this by using the array notation. More here: https://vuejs.org/guide/essentials/class-and-style.html#class-and-style-bindings
     -->
-    <div>
+    <div class="text-title">
       <h2> {{ title }} </h2>
     </div>
-    <div :class = "{'info-group': !isReverse, 'reverse-info-group': isReverse}">
-        <img class = "main-img" :src = "src" />
+    <div class="text">
       <p v-html = "newLineOnFullStop( description )" />
     </div>
 </template>
@@ -29,17 +28,10 @@
     */
 
     defineProps({
-        isReverse: {
-            type: Boolean,
-            default: false
-        },
         title: {
           type: String
         },
         description: {
-          type: String
-        },
-        src: {
           type: String
         }
     })
@@ -61,24 +53,16 @@
         gap: 40px;
     }
 
-    .reverse-info-group {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 40px;
-        flex-direction: row-reverse;
+    .text-title {
+      align-content: center;
+    }
+
+    .text {
+      margin-left: 20%;
+      margin-right: 20%;
     }
 
     @media screen and (max-width: 1200px) {
-        #main-img {
-            width: 50%;
-            height: auto;
-        }
 
-        .info-group, .reverse-info-group{
-            flex-direction: column;
-            gap: 10px;
-        }
     }
 </style>

@@ -6,9 +6,9 @@
     <main>
       <h1>About Us</h1>
 
-      <TextImage title="About the Event" :description = "overview" :src = "logo" />
-      <TextImage title="About the Application" :description = "application" />
-      <TextImage title="For more Information" :description = "info" />
+      <Text title="About the Event" :description = "overview" />
+      <Text title="About the Application" :description = "application" />
+      <Text title="For more Information" :description = "info" />
       <NuxtLink to = "/contact" ><button>{{ contactUs }}</button></NuxtLink>
     </main>
 </template>
@@ -46,7 +46,7 @@
     meta: [
       {
         name: "description",
-        content: "CYZ Summer School"
+        content: "The CYZ Summer School is a new annual summer school with its first edition taking place from July 10 - July 19 2024, hosted by Politecnico di Milano. The school provides an interdisciplinary setting, and offers introductory courses in all areas of Machine learning, including prominent topics such as Neural Networks, Natural Language Processing, and Optimization.The school is organized as an in-person event, where national and international experts will offer a multiplicity of lectures. The full-day programme will be accompanied by various educational and cultural events, such as conferences and trips, and coffee and lunch will be provided."
       },
       {
         name: "site_name",
