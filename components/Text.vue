@@ -39,22 +39,11 @@
 </script>
 
 <style>
-    .main-img {
-        width: 30%;
-        height: auto;
-    }
-
-    .info-group {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 40px;
-    }
 
     .text-title {
+      margin-top: 45px;
       align-content: center;
+      font-size: 16pt;
     }
 
     .text {

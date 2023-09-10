@@ -3,7 +3,6 @@
     max level of page = 3
 -->
 <template>
-  <span>{{ getBreadcrumbs }}</span>
     <ul class="breadcrumb">
         <li class="breadcrumb" v-for="(crumb,index) of getBreadcrumbs">
           <NuxtLink :to = "crumb.to"><span>{{ crumb.title }}</span></NuxtLink>
@@ -53,13 +52,19 @@
 
     .breadcrumb {
       display: inline;
-      font-size: 12pt;
+      padding: 15px 0 15px 25px;
+      font-size: 14pt;
+      background-color: #234975;
+      color: dimgrey;
+      margin-block-start: 0;
+      margin-block-end: 0;
+
     }
     .breadcrumb a:link {
-      color: #022338;
+      color: #ffffff;
     }
     .breadcrumb a:visited{
-      color: #022338;
+      color: #ffffff;
     }
 
 </style>

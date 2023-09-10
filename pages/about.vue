@@ -4,8 +4,7 @@
 <template>
 
     <main>
-      <h1>About Us</h1>
-
+      <PageTitle title="About Us" :description = "page_description" />
       <Text title="About the Event" :description = "overview" />
       <Text title="About the Application" :description = "application" />
       <Text title="For more Information" :description = "info" />
@@ -19,6 +18,9 @@
 
     data() {
       return {
+        page_description: 'AAAA'
+        ,
+
         overview:
             'The CYZ Summer School is a new annual summer school with its first edition taking place from July 10 - July 19 2024, hosted by Politecnico di Milano. ' +
             '\n' +
@@ -29,8 +31,11 @@
         logo: 'img/home-image.jpg',
         application:
             'The summer school is open for international students, and all the courses will be taught in English. Applicants are expected to be at advanced Master level or PhD level with a solid background in Computer Science. \n' +
+            'To ensure accessibility, the summer school will be free of charge.' +
             '\n' +
-            'To ensure accessibility, the summer school will be free of charge. However, there will be a cap on the total number of participants. The selection will be made according to the applicants’ CV and letters of motivation. \n',
+            'However, there will be a cap on the total number of participants.' +
+            '\n' +
+            'The selection will be made according to the applicants’ CV and letters of motivation.',
         info: 'More Info',
         contactUs: 'Contact Us'
       }
@@ -65,13 +70,6 @@
         align-items: center;
     }
 
-    .info-group {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-    }
+
 
 </style>

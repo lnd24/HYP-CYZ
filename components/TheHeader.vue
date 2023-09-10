@@ -66,7 +66,7 @@ function showMenu() {
   header
   {
     background-color: #192B59;
-    padding: 0 20px 0 20px;
+    padding: 0 20px 0 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
