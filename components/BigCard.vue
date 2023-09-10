@@ -14,7 +14,7 @@
 
         <div class="big_card_image-container">
           <span class="button" @click="prevIndex"> &lt </span>
-          <img class="big_card_image" :src="'/img/' + objects[index].img.url" :alt="objects[index].img.alt" />
+          <img class="big_card_image" :src="objects[index].img.url" :alt="objects[index].img.alt" />
           <span class="button" @click="nextIndex"> &gt </span>
         </div>
 

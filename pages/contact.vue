@@ -36,7 +36,7 @@
     meta: [
       {
         name: "description",
-        content: "This is the Contact Page"
+        content: "This is the Contact Page of CYZ Summer School"
       },
       {
         name: "site_name",

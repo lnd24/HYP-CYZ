@@ -22,7 +22,9 @@
       <div>
         <h3>Other Speakers</h3>
         <div class = "info-group">
-          <SmallCard v-for="s of others"  :title = "s.name + ' ' + s.surname" :link = "'/speakers/' + s.alias" />
+          <button @click="changeIndex(-1)" v-if="!!others[index-1]">prev</button>
+          <SmallCard v-for="s of others[index]"  :title = "s.name " :subtitle = "s.surname" :link = "'/speakers/' + s.alias" />
+          <button @click="changeIndex(1)" v-if="!!others[index+1]">next</button>
         </div>
       </div>
 
@@ -34,6 +36,8 @@
 <script setup>
     const route = useRoute()
     const id = route.params.id
+    const index = ref(0)
+
     // useRuntimeConfig provide us with environment variables set up in the nuxtconfig file
     const { data: speaker } = await useFetch('/api/speakers/' + id)
     const { data: all } = await useFetch('/api/speakers/')
@@ -42,20 +46,25 @@
     })
 
     const others = computed(() => {
-
       const arr = []
-
       // Add only the other speakers in the list
       for(let s of all.value) {
         if(s.alias !== id){
           arr.push(s)
         }
-
       }
-
       // Returning the list
-      return arr
+      return showFive(arr)
     })
+
+    function changeIndex(value) {
+      if(value < 0){
+        index.value--
+      }else {
+        index.value++
+      }
+    }
+
 
     /* Head: title, description, site_name */
     useHead({

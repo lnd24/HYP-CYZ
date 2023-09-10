@@ -51,7 +51,7 @@
       meta: [
         {
           name: "description",
-          content: "This is the Speakers Page"
+          content: "This is the Speakers Page of CYZ Summer School"
         },
         {
           name: "site_name",

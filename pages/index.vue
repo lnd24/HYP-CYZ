@@ -26,11 +26,11 @@
   const {data: activities} = useFetch('/api/activities')
   const lastActivity = computed(()=>{
     const arr = []
-    for(let a of activities.value.slice(activities.value.length-2, activities.value.length)){
+    for(let a of activities.value){
       arr.push({
         title: a.title,
         subtitle: a.location,
-        link: '/activities/' + a.alias,
+        link: '/socials/' + a.alias,
         img: {
           url: a.picture.url,
           alt: a.picture.alt

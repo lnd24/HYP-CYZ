@@ -85,7 +85,7 @@
       meta: [
         {
           name: "description",
-          content: "Social Activities List Page"
+          content: "This is the Social Activities List Page of CYZ Summer School"
         },
         {
           name: "site_name",

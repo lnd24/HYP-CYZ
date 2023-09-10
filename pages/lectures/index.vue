@@ -91,7 +91,10 @@
     /* Head: title, site_name */
     useHead({
       title: "Our Lectures - CYZ Summer School",
-      meta: [
+      meta: [{
+        name: "description",
+        content: "This is the Lectures List Page of CYZ Summer School"
+      },
         {
           name: "site_name",
           content: "CYZ Summer School"

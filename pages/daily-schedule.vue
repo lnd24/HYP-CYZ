@@ -5,7 +5,7 @@
     <main>
       <div>
         <div class="form-container">
-          <label for="daily-schedule">Daily Schedule : </label> <input id = "daily-schedule" type = 'date' placeholder = "Daily Schedule" v-model = "currentDate">
+          <label for="daily-schedule">Daily Schedule : </label> <input id = "daily-schedule" type = 'date' placeholder = "Daily Schedule" v-model = "currentDate" :max="endDate" :min="startDate">
         </div>
       </div>
       <div class = "schedule-container">
@@ -24,8 +24,11 @@
 
   const { data: lectures } = await useFetch('/api/lectures')
   const { data: sactivities } = await useFetch('/api/activities')
-  const date = new Date();
 
+  const startDate = ref("2024-07-10")
+  const endDate = ref("2024-07-19")
+
+  const date = new Date();
 
   let day = date.getDate();
   // Fix day
@@ -35,6 +38,7 @@
   month = month<10 ? `0${month}`: month
   let year = date.getFullYear();
   const currentDate = ref(`${year}-${month}-${day}`);
+
   const filteredLectures = () => {
 
     const arr = []
@@ -88,7 +92,7 @@
     meta: [
       {
         name: "description",
-        content: "This is the Daily Schedule Page"
+        content: "This is the Daily Schedule Page of CYZ Summer School"
       },
       {
         name: "site_name",

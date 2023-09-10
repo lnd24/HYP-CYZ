@@ -32,3 +32,13 @@ export function getLectures(speaker) {
     }
     return arr.join(", ")
 }
+
+/* split an array into arrays of 5 elements */
+export function showFive(array) {
+    const arr = []
+
+    for (let i = 0; i < array.length; i = i + 5) {
+        arr.push(array.slice(i,i+5))
+    }
+    return arr
+}
