@@ -10,6 +10,7 @@
         <div class="location-container">Politecnico di Milano</div>
         <img id = "time-icon" src = "~/assets/img/clock-icon.png" alt="time icon" />
         <div class="time-container">10 - 19 July, 2024</div>
+        <NuxtLink to = "/about" ><button id="read-more">Read More</button></NuxtLink>
       </div>
         <div class="lectures-container">
           <BigCard :objects = "lastActivity"/>
@@ -100,7 +101,7 @@
 
     .title-container {
       position: absolute;
-      top: max(18vw, 150px);
+      top: max(18vw, 160px);
       left: 13%;
       text-align: left;
       font-family: "Century Gothic", sans-serif;
@@ -114,14 +115,14 @@
       position: absolute;
       z-index: 1;
       left: 15%;
-      top: max(27vw, 160px);
+      top: max(26vw, 170px);
       width: 2.5vw;
     }
 
     .location-container {
       padding-top: 40px;
       position: absolute;
-      top: max(27vw, 160px);
+      top: max(26vw, 170px);
       left: 20%;
       text-align: left;
       font-family: "Century Gothic", sans-serif;
@@ -135,20 +136,33 @@
       position: absolute;
       z-index: 1;
       left: 15.3%;
-      top: max(34.1vw, 190px);
+      top: max(33.1vw, 200px);
       width: 2.2vw;
     }
 
     .time-container {
       padding-top: 40px;
       position: absolute;
-      top: max(34vw, 190px);
+      top: max(33vw, 200px);
       left: 20%;
       text-align: left;
       font-family: "Century Gothic", sans-serif;
       font-weight: normal;
       font-size: 2vw;
       color: aliceblue;
+    }
+
+    #read-more {
+      position: absolute;
+      top: max(42vw, 265px);
+      left: 20%;
+      z-index: 1;
+      font-size: 1.5vw;
+      padding: 0.8vw 1.5vw 0.8vw 1.5vw;
+      color: white;
+      font-family: "Century Gothic", sans-serif;
+      background-color: #192B59;
+      border: 0.3vh solid lightgray;
     }
 
 </style>
