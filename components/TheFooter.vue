@@ -5,11 +5,7 @@
 <template>
     <footer>
       <div>
-        <span class="footer-title">CYZ - Summer School</span>
-
-        <div class = "footer-links">
-          <NuxtLink to = "/contact">CONTACT US</NuxtLink>
-        </div>
+        <span class="footer-title">© CYZ - Summer School 2024. All rights reserved.</span>
       </div>
     </footer>
 </template>
@@ -18,13 +14,12 @@
 
     footer
     {
-        background-color: #022338;
+        background-color: #192B59;
         flex-shrink: 0;
-        text-align: center;
-        margin-top: auto;
-        border-top: 5px darkblue;
-        padding: 10px;
-        min-height: 1vh;
+        text-align: left;
+        margin-top: 40px;
+        border-top: 17px darkblue;
+        padding: 25px;
 
     }
     .footer-links
@@ -34,6 +29,7 @@
     }
     .footer-title
     {
+      padding-top: 30px;
       position: center;
       color: aliceblue;
     }

@@ -67,8 +67,6 @@ function showMenu() {
   {
     background-color: #192B59;
     padding: 0 20px 0 20px;
-    margin-bottom: 5px;
-    border-bottom: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -139,6 +137,7 @@ function showMenu() {
       flex-direction: column;
       background: #192B59;
       max-width: max-content;
+      z-index: 1;
     }
 
     .hidden {
