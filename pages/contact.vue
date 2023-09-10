@@ -14,7 +14,7 @@
           <div id="office">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.5272048825886!2d9.230325779402145!3d45.47932727115789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c6f67c76510f%3A0x52a5c69d1962b716!2sDipartimento%20di%20Elettronica%2C%20Informazione%20e%20Bioingegneria!5e0!3m2!1sit!2sit!4v1694369714787!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <div id="address">
-              <h3>CYZ Summer School Office</h3>
+              <h3 id="office-title">CYZ Summer School Office</h3>
               <ul>
                 <li>E-mail: <a href="mailto:summerschool@cyz.it">summerschool@cyz.it</a></li>
                 <li>Tel: (+39) 02 12345678</li>
@@ -23,7 +23,7 @@
             </div>
           </div>
 
-          <p>We look forward to hearing from you!</p>
+          <p id="look-forward">We look forward to hearing from you!</p>
 
             <form>
                 <div>
@@ -38,7 +38,7 @@
                     <label for = "message">Message</label>
                     <textarea id = "message" placeholder = "Write your message here"></textarea>  
                 </div>
-                <button type = "submit" @click = "submitForm">Send Message</button>
+                <button id = "contact-button" type = "submit" @click = "submitForm">Send Message</button>
             </form>
         </main>
     </main>
@@ -139,7 +139,7 @@
       margin-top: 10px;
     }
 
-    h3 {
+    #office-title {
       margin-left: 20px;
     }
 
@@ -149,14 +149,14 @@
       text-decoration: underline;
     }
 
-    p {
+    #look-forward {
       margin-top: 80px;
       font-size: 24px;
       font-weight: bold;
       color: #192B59;
     }
 
-    button {
+    #contact-button {
       align-self: center;
       width: 30%;
       font-size: 14pt;
@@ -194,7 +194,7 @@
           min-height: 20px;
         }
 
-        p {
+        #look-forward {
           margin-left: 0;
           margin-top: 50px;
         }
