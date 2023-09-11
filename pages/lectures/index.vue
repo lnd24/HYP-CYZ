@@ -7,7 +7,7 @@
       <div class = "form-container">
         <label id = "lecture-searcher-label" for = "lecture-searcher">Search: </label><input id = "lecture-searcher" type = 'text' placeholder = "Keyword" v-model = "word">
         <label id = "date-filter-label" for = "date-filter">Date filter: </label>
-        <select id = "date-filter" v-model = "date">
+        <select class = "date-filter" v-model = "date">
           <option v-for="d of allDates" :value="d"> {{ d }} </option>
         </select>
       </div>
@@ -154,7 +154,7 @@
       font-size: 16pt;
     }
 
-    #date-filter {
+    .date-filter {
       font-size: 16pt;
       font-family: 'Raleway', sans-serif;
       width: max-content;

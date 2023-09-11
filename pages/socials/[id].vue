@@ -4,13 +4,12 @@
 -->
 <template>
     <main>
-        <div class = "info-group">
+        <div class = "activity-group">
             <img id = "main-img" :src = "activity.picture.url" :alt = "activity.picture.alt" />
             <div id = "data-container">
                 <p class = "data">Title: <span class="infos">{{ activity.title }}</span></p>
-                <p class = "data">Time: <span class="infos">{{ activity.date + ": &nbsp;" + activity.startT + " - " + activity.endT }}</span> </p>
+                <p class = "data">Time: <span class="infos">{{ activity.date + ",&nbsp;" + activity.startT + " - " + activity.endT }}</span> </p>
                 <p class = "data">Location: <span class="infos">{{ activity.location }}</span> </p>
-
             </div>
         </div>
       <!--
@@ -48,25 +47,19 @@
 </script>
 
 <style>
+
+    .activity-group{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+    }
+
     #main-img {
-    width: 30%;
-    height: auto;
-    }
-
-    main {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .info-group {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 40px;
+      margin-top: 50px;
+      margin-left: 25%;
+      min-width: 50%;
+      height: auto;
     }
 
     .data {

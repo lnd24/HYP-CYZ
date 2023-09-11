@@ -6,16 +6,16 @@
       <PageTitle title="Daily Schedule" description = "The Programme takes place between 10 - 19 July 2024. The detailed daily schedule is presented here. Lectures and activities are included." />
       <div>
         <div class="form-container">
-          <label for="daily-schedule">Daily Schedule : </label> <input id = "daily-schedule" type = 'date' placeholder = "Daily Schedule" v-model = "currentDate" :max="endDate" :min="startDate">
+          <label id="daily-schedule" for="daily-schedule">Daily Schedule: </label> <input class= "schedule-filter" id = "daily-schedule" type = 'date' placeholder = "Daily Schedule" v-model = "currentDate" :max="endDate" :min="startDate">
         </div>
       </div>
       <div class = "schedule-container">
         <div v-if="filtered.length === 0">
-          <h3> No Activities for {{ currentDate }} </h3>
+          <h2> No Activities for {{ currentDate }} </h2>
         </div>
         <div class = "info-group" v-for="a of filtered">
-          <span> {{ a.schedule }} </span>
-          <SmallCard :title = "a.title" :subtitle = "a.subtitle" :link = "a.link" />
+          <span id="scheduled-time"> {{ a.schedule }} </span>
+          <Banner :title = "a.title" :subtitle = "a.subtitle" :link = "a.link" />
         </div>
       </div>
     </main>
@@ -105,26 +105,31 @@
 
 </script>
 <style>
-    #main-img {
-    width: 80%;
-    max-width: 1000px;
-    height: auto;
-    }
-
-    main {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
 
     .info-group {
       width: 100%;
       display: flex;
       flex-direction: row;
       align-items: center;
+      text-align: left;
       justify-content: center;
       gap: 40px;
+    }
+
+    #daily-schedule {
+      font-size: 16pt;
+      vertical-align: center;
+      padding: 5px;
+    }
+
+    .schedule-filter {
+      font-size: 15pt;
+      font-family: 'Raleway', sans-serif;
+      padding: 5px;
+    }
+
+    #scheduled-time {
+      font-size: 15pt;
     }
 
 

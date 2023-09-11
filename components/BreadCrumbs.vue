@@ -52,7 +52,7 @@
 <style>
 
     .breadcrumb-ul {
-      width: 100vw;
+      max-width: 100vw;
       background: linear-gradient(180deg, #192B59, #234975);
       margin-block-start: 0;
       margin-block-end: 0;
