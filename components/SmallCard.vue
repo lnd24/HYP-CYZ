@@ -27,16 +27,6 @@
 </script>
 
 <style>
-    .image-container
-    {
-        display: flex;
-        justify-content: center;
-        border: 2px midnightblue;
-        border-radius: 10px;
-        padding: 2px;
-        width: 250px;
-        height: 250px;
-    }
 
     .smallcard
     {
@@ -45,8 +35,8 @@
         padding: 20px;
         border: 2px solid #192B59;
         border-radius: 10px;
-        width: max-content;
         text-align: center;
+        width: 25%;
     }
 
     .title

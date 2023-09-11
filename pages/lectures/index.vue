@@ -5,15 +5,14 @@
     <main>
       <PageTitle title="Lectures" description = "The lectures cover a wide range of topics in various subfields of Machine Learning, and practical activities are also proposed." />
       <div class = "form-container">
-
-        <label for = "lecture-searcher">Search</label><input id = "lecture-searcher" type = 'text' placeholder = "Lecture Searcher" v-model = "word">
-        <label for = "date-filter">Date filter</label>
+        <label id = "lecture-searcher-label" for = "lecture-searcher">Search: </label><input id = "lecture-searcher" type = 'text' placeholder = "Keyword" v-model = "word">
+        <label id = "date-filter-label" for = "date-filter">Date filter: </label>
         <select id = "date-filter" v-model = "date">
           <option v-for="d of allDates" :value="d"> {{ d }} </option>
         </select>
       </div>
-        <h1>Lectures</h1>
-        <div id="card-container">
+        <h1 id="lectures_page_title">All Lectures</h1>
+        <div id="banner-container">
             <Banner v-for = "(lecture, index) in filteredByDate" :title = "lecture.title" :subtitle = "speakers[index]" :link = "'/lectures/' + lecture.alias"/>
         </div>
     </main>
@@ -106,14 +105,16 @@
 </script>
 
 <style>
-    #card-container
+    #banner-container
     {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: center;
-        align-content: flex-start;
-        gap: 20px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: center;
+      align-content: flex-start;
+      gap: 20px;
+      margin-bottom: 40px;
     }
 
     main
@@ -122,21 +123,52 @@
         flex-direction: column;
         justify-content: center;
         align-content: flex-start;
-        gap: 10px;
     }
 
-    #form-container {
-        width: 90%;
+    .form-container {
+        width: max-content;
         border-radius: 10px;
-        border: 2px solid brown;
+        border: 2px solid #063057;
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: center;
         align-content: flex-start;
-        gap: 20px;
-
-        background-color: burlywood;
-        padding: 20px;
+        background-color: #c0c3ce;
+        margin-bottom: 40px;
     }
+
+    #lecture-searcher {
+      font-size: 14pt;
+      text-align: left;
+      padding: 6px;
+      width: min(30vw, 400px);
+      font-family: 'Raleway', sans-serif;
+      margin-right: 50px;
+    }
+
+    #lecture-searcher-label {
+      font-size: 16pt;
+    }
+
+    #date-filter-label {
+      font-size: 16pt;
+    }
+
+    #date-filter {
+      font-size: 16pt;
+      font-family: 'Raleway', sans-serif;
+      width: max-content;
+      height: 27pt;
+    }
+
+
+    @media screen and (max-width: 800px) {
+      .form-container {
+        flex-direction: column;
+      }
+
+    }
+
+
 
 </style>

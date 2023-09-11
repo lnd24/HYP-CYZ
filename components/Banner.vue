@@ -26,9 +26,8 @@ export default {
 
 
 .banner_wrapper {
+  margin: 15px 15% 15px 15%;
   width: 100%;
-  margin-left: 15%;
-  margin-right: 15%;
 }
 
 .banner
@@ -65,6 +64,14 @@ export default {
   background-color: #9facbb;
   color: #192B59;
   transition: .5s;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .banner
+  {
+    flex-flow: column;
+  }
 }
 
 
