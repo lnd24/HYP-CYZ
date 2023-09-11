@@ -26,7 +26,7 @@
 
           <p id="look-forward">We look forward to hearing from you!</p>
 
-            <form>
+            <form class="contact-form">
                 <div>
                     <label for = "name">Name & Surname</label>
                     <input type = "text" id = "name" placeholder = "Name & Surname">
@@ -76,7 +76,7 @@
     align-items: center;
     }
 
-    form {
+    .contact-form {
         margin-top: 40px;
         width: 600px;
         display: flex;
@@ -87,19 +87,19 @@
         row-gap: 30px;
     }
 
-    form div {
+    .contact-form div {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
 
-    input {
+    .contact-form input {
       min-height: 20px;
       width: 50%;
       font-size: 13pt;
     }
 
-    textarea {
+    .contact-form textarea {
         width: 99%;
         min-height: 6em;
         resize: vertical;
@@ -170,7 +170,7 @@
     }
 
     @media screen and (max-width: 800px) {
-        form div {
+        .contact-form div {
             flex-direction: column;
         }
 
@@ -190,8 +190,8 @@
           margin-top: 20px;
         }
 
-        input {
-          width: 100%;
+        .contact-form input {
+          width: 99%;
           margin-top: 10px;
           min-height: 20px;
         }
@@ -201,13 +201,12 @@
           margin-top: 50px;
         }
         
-        form {
-            width: 90%;
-            min-width: 400px;
+        .contact-form {
+            width: 80%;
         }
 
-        textarea {
-          width: 100%;
+        .contact-form textarea {
+          width: 99%;
           margin-top: 10px;
           min-height: 130px;
         }
