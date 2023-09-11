@@ -52,12 +52,13 @@
 <style>
 
     .breadcrumb-ul {
-      width: 100%;
+      width: 100vw;
       background: linear-gradient(180deg, #192B59, #234975);
       margin-block-start: 0;
       margin-block-end: 0;
       padding-top: 30px;
       padding-bottom: 20px;
+      padding-inline-start: 0;
     }
 
     .breadcrumb {

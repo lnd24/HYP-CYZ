@@ -4,25 +4,19 @@
 -->
 <template>
     <main>
-      <div class = "form-container">
-        <label for = "date-filter">Date filter</label>
-        <select id = "date-filter" v-model = "date">
-          <option v-for="d of allDates" :value="d"> {{ d }} </option>
-        </select>
-      </div>
-      <span> {{ date }} </span>
+      <PageTitle title="Activities" description = "Check out the activities proposed by us, including lectures and social activities." />
         <h1>Lectures</h1>
       <h3 v-if="filteredLectures.length===0"> No Lecture on {{ date }} </h3>
         <div id="card-container">
             <SmallCard v-for = "(lecture, index) in filteredLectures[0]" :title = "lecture.title" :subtitle = "speakers[index]" :link = "'/lectures/' + lecture.alias" />
         </div>
-      <NuxtLink to="/lectures"><button>See All Lectures</button></NuxtLink>
+      <NuxtLink to="/lectures"><button id="see_all_button">See All Lectures</button></NuxtLink>
       <h1>Social Activities</h1>
       <h3 v-if="filteredActivities.length===0"> No Social Activity on {{ date }} </h3>
       <div id="card-container">
         <Card v-for = "social of filteredActivities[0]" :title = "social.title" :subtitle = "social.location" :link = "'/socials/' + social.alias" :img = "social.picture"/>
       </div>
-      <NuxtLink to="/socials"><button>See All Social Activities</button></NuxtLink>
+      <NuxtLink to="/socials"><button id="see_all_button">See All Social Activities</button></NuxtLink>
     </main>
 </template>
 
@@ -130,6 +124,26 @@
         justify-content: center;
         align-content: flex-start;
         gap: 10px;
+    }
+
+    #see_all_button {
+      z-index: 1;
+      font-size: 14pt;
+      margin: 40px 0 100px 0;
+      padding: 10px 15px 10px 15px;
+      color: #ffffff;
+      font-family: "Century Gothic", sans-serif;
+      background-color: #535469;
+      border: 0.3vh solid lightgray;
+      border-radius: 3px;
+      transition: all .5s;
+      cursor: pointer;
+    }
+
+    #see_all_button:hover {
+      background-clip: padding-box;
+      background-color: #9facbb;
+      color: #192B59;
     }
 
 

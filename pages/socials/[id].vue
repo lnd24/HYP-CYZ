@@ -7,12 +7,12 @@
         <div class = "info-group">
             <img id = "main-img" :src = "activity.picture.url" :alt = "activity.picture.alt" />
             <div id = "data-container">
-                <p class = "data">Title: <span>{{ activity.title }}</span></p>
-                <p class = "data">Schedule: <span>{{ activity.date + ": &nbsp;" + activity.startT + " - " + activity.endT + ", " + activity.location }}</span> </p>
+                <p class = "data">Title: <span class="infos">{{ activity.title }}</span></p>
+                <p class = "data">Time: <span class="infos">{{ activity.date + ": &nbsp;" + activity.startT + " - " + activity.endT }}</span> </p>
+                <p class = "data">Location: <span class="infos">{{ activity.location }}</span> </p>
 
             </div>
         </div>
-      <h2>Description</h2>
       <!--
           v-html allows us to change the structure of a HTML element.
           It used because of the 'newLineOnFullStop' function that returns a string with the <br> tags.
@@ -74,13 +74,5 @@
         font-size: 20pt
     }
 
-    .data span {
-        font-weight: 100;
-        font-size: 15pt;
-    }
 
-    #description {
-        padding: 0 20px 0 20px;
-        font-size: 15pt;
-    }
 </style>

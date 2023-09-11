@@ -22,7 +22,7 @@
         ,
 
         overview:
-            'The CYZ Summer School is a new annual summer school with its first edition taking place from July 10 - July 19 2024, hosted by Politecnico di Milano. ' +
+            'The CYZ Summer School is a new annual summer school with its first edition taking place between July 10 - July 19 2024, hosted by Politecnico di Milano. ' +
             '\n' +
             'The school provides an interdisciplinary setting, and offers introductory courses in all areas of Machine learning, including prominent topics such as Neural Networks, Natural Language Processing,  and Optimization.\n' +
             '\n' +
@@ -73,13 +73,21 @@
     #contact_button {
       z-index: 1;
       float: right;
-      font-size: 12pt;
+      font-size: 14pt;
       padding: 10px 15px 10px 15px;
       color: white;
       font-family: "Century Gothic", sans-serif;
       background-color: #192B59;
       border: 0.3vh solid lightgray;
       border-radius: 3px;
+      transition: all .5s;
+      cursor: pointer;
+    }
+
+    #contact_button:hover {
+      background-clip: padding-box;
+      background-color: #9facbb;
+      color: #192B59;
     }
 
 

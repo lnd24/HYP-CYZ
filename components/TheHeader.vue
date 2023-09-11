@@ -13,7 +13,7 @@
         <li><NuxtLink to = "/speakers">Speakers</NuxtLink></li>
 
         <div class="nav_parent" @mouseover="showChild" @mouseout="hideChild">
-          <li><NuxtLink to = "/activities">All Activities</NuxtLink></li>
+          <li><NuxtLink to = "/activities">Activities</NuxtLink></li>
           <div id="nav_box" :class="child_class">
             <ul>
               <li id="drop_down">

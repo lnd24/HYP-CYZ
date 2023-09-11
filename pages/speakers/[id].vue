@@ -7,21 +7,20 @@
         <div class = "info-group">
             <img id = "main-img" :src = "speaker.photo.url" :alt="speaker.photo.alt" />
             <div id = "data-container">
-                <p class = "data">Name: <span>{{ speaker.name }}</span></p>
-                <p class = "data">Surname: <span>{{ speaker.surname }}</span></p>
-                <p class = "data">Lectures: <span>{{ lectures }}</span>  </p>
+                <p class = "data">Name: <span class="infos">{{ speaker.name }}</span></p>
+                <p class = "data">Surname: <span class="infos">{{ speaker.surname }}</span></p>
+                <p class = "data">Lectures: <br><span class="infos">{{ lectures }}</span>  </p>
             </div>
         </div>
-        <h2>Short CV</h2>
         <p id = "description" v-html = "newLineOnFullStop(speaker.description)"></p>
       <div>
-        <h3>More Info about this Speaker's Lectures</h3>
-        <div class = "info-group">
+        <h3 class="more_info">More Info about this Speaker's Lectures</h3>
+        <div id="card-container">
           <SmallCard v-for="l of speaker.lectures" :title = "l.title" :link = "'/lectures/' + l.alias" />
         </div>
       </div>
       <div>
-        <h3>Other Speakers</h3>
+        <h3 class="more_info">Other Speakers</h3>
         <div class = "info-group">
           <button @click="changeIndex(-1)" v-if="!!others[index-1]">prev</button>
           <SmallCard v-for="s of others[index]"  :title = "s.name " :subtitle = "s.surname" :link = "'/speakers/' + s.alias" />
@@ -86,8 +85,9 @@
 
 <style>
     #main-img {
-    width: 30%;
-    height: auto;
+      margin-top: 40px;
+      margin-left: 10%;
+      max-width: 25%;
     }
 
     main {
@@ -108,16 +108,16 @@
 
     .data {
         font-weight: bolder;
-        font-size: 20pt
+        font-size: 18pt
     }
 
-    .data span {
-        font-weight: 100;
-        font-size: 15pt;
+    .more_info {
+      margin-top: 50px;
+      margin-bottom: 30px;
     }
 
     #description {
-        padding: 0 20px 0 20px;
+        margin: 60px 20% 60px 20%;
         font-size: 15pt;
     }
 </style>

@@ -3,14 +3,8 @@
 -->
 <template>
     <main>
-        <!--
-            Form used to filter the list by keyword.
-        -->
-        <div class = "form-container">
-            <label for = "speaker-searcher">Search</label><input id = "speaker-searcher" type = 'text' placeholder = "Speaker Searcher" v-model = "word">
-        </div>
-      <span> {{ word }} </span>
-        <h1>Speakers</h1>
+      <PageTitle title="Speakers" description = "Our team is composed of national and international experts in Data Science and Machine Learning." />
+
         <div id="card-container">
             <Card v-for = "speaker of filtered" :title = "speaker.name" :subtitle = "speaker.surname" :link = "'/speakers/' + speaker.alias" :img = speaker.photo />
         </div>

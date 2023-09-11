@@ -14,7 +14,7 @@
         </div>
         <span class="title">{{ title }}</span>
         <span class="subtitle">{{ subtitle }}</span>
-        <NuxtLink :to = "link" ><button>Open description</button></NuxtLink>
+      <NuxtLink :to = "link" ><button class="smallcard_button"><span>More Details</span></button></NuxtLink>
     </div>
 </template>
 
@@ -30,8 +30,7 @@
         border: 2px midnightblue;
         border-radius: 10px;
         padding: 2px;
-        width: 250px;
-        height: 250px;
+        width: 25vw;
     }
 
     .img
@@ -51,8 +50,8 @@
         padding: 20px;
         border: 2px solid black;
         border-radius: 20px;
-        width: fit-content;
-        height: fit-content;
+        width: 25vw;
+        text-align: center;
     }
 
     .title
