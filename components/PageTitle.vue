@@ -50,6 +50,7 @@ defineProps({
 
 .page-title {
   margin-left: 20%;
+  margin-right: 20%;
   margin-top: 30px;
   align-content: center;
   font-weight: bold;

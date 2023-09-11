@@ -5,7 +5,7 @@
     <main>
       <PageTitle title="Lectures" description = "The lectures cover a wide range of topics in various subfields of Machine Learning, and practical activities are also proposed." />
       <div class = "form-container">
-        <label id = "lecture-searcher-label" for = "lecture-searcher">Search: </label><input id = "lecture-searcher" type = 'text' placeholder = "Keyword" v-model = "word">
+        <label id = "searcher-label" for = "lecture-searcher">Search: </label><input id = "searcher" type = 'text' placeholder = "Keyword" v-model = "word">
         <label id = "date-filter-label" for = "date-filter">Date filter: </label>
         <select class = "date-filter" v-model = "date">
           <option v-for="d of allDates" :value="d"> {{ d }} </option>
@@ -137,16 +137,16 @@
         margin-bottom: 40px;
     }
 
-    #lecture-searcher {
+    #searcher {
       font-size: 14pt;
       text-align: left;
       padding: 6px;
-      width: min(30vw, 400px);
+      width: min(20vw, 400px);
       font-family: 'Raleway', sans-serif;
       margin-right: 50px;
     }
 
-    #lecture-searcher-label {
+    #searcher-label {
       font-size: 16pt;
     }
 

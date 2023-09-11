@@ -3,10 +3,11 @@
 -->
 <template>
     <main>
+      <PageTitle title="Social Activities" description = "We organize different kinds of social activities, such as trips and conferences, offering the participants the opportunity to visit interesting locations and to learn at the same time." />
       <div class = "form-container">
-        <label for = "sactivity-searcher">Search</label><input id = "sactivity-searcher" type = 'text' placeholder = "Social Activity Searcher" v-model = "word">
-        <label for = "date-filter">Date filter</label>
-        <select id = "date-filter" v-model = "date">
+        <label id = "searcher-label" for = "sactivity-searcher">Search:</label><input id = "searcher" type = 'text' placeholder = "Keyword" v-model = "word">
+        <label id = "date-filter-label" for = "date-filter">Date filter:</label>
+        <select class = "date-filter" v-model = "date">
           <option v-for="d of allDates" :value="d"> {{ d }} </option>
         </select>
       </div>
@@ -115,18 +116,5 @@
         gap: 10px;
     }
 
-    #form-container {
-        width: 90%;
-        border-radius: 10px;
-        border: 2px solid brown;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-content: flex-start;
-        gap: 20px;
-
-        background-color: burlywood;
-        padding: 20px;
-    }
 
 </style>

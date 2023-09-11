@@ -17,7 +17,7 @@
           It used because of the 'newLineOnFullStop' function that returns a string with the <br> tags.
           This function is a composable that is available anywhere, without requiring to be imported.
       -->
-      <p id = "description" v-html = "newLineOnFullStop(activity.description)"></p>
+      <span id = "description" v-html = "newLineOnFullStop(activity.description)"></span>
       <!-- <SmallCard :title = "dog.location.name" :subtitle = "dog.location.city" :link = "'/locations/' + dog.location.id" /> -->
     </main>
 </template>

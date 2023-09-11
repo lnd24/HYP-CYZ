@@ -19,7 +19,7 @@
             It used because of the 'newLineOnFullStop' function that returns a string with the <br> tags.
             This function is a composable that is available anywhere, without requiring to be imported.
         -->
-      <p id = "description" v-html = "newLineOnFullStop(lecture.description)"></p>
+      <span id = "description" v-html = "newLineOnFullStop(lecture.description)"></span>
 
       <div id="interest">
         <p id="interest_intro">You could be interested in these lectures:</p>

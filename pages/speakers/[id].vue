@@ -5,14 +5,14 @@
 <template>
     <main>
         <div class = "info-group">
-            <img id = "main-img" :src = "speaker.photo.url" :alt="speaker.photo.alt" />
+            <img id = "speaker-img" :src = "speaker.photo.url" :alt="speaker.photo.alt" />
             <div id = "data-container">
                 <p class = "data">Name: <span class="infos">{{ speaker.name }}</span></p>
                 <p class = "data">Surname: <span class="infos">{{ speaker.surname }}</span></p>
                 <p class = "data">Lectures: <br><span class="infos">{{ lectures }}</span>  </p>
             </div>
         </div>
-        <p id = "description" v-html = "newLineOnFullStop(speaker.description)"></p>
+        <span id = "description" v-html = "newLineOnFullStop(speaker.description)"></span>
       <div>
         <h3 class="more_info">More Info about this Speaker's Lectures</h3>
         <div id="card-container">
@@ -84,7 +84,7 @@
 </script>
 
 <style>
-    #main-img {
+    #speaker-img {
       margin-top: 40px;
       margin-left: 10%;
       max-width: 25%;
