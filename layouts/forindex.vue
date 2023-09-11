@@ -10,6 +10,7 @@
 </template>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
     .page {
         min-height: 100vh;
         display: flex;
