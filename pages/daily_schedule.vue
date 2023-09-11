@@ -78,13 +78,13 @@
     return arr
   })
 
-  /* Head: title, site_name */
+  /* Head: title, description, site_name */
   useHead({
     title: "Daily Schedule - CYZ Summer School",
     meta: [
       {
         name: "description",
-        content: "This is the Daily Schedule Page of CYZ Summer School"
+        content: "CYZ Summer School: The Programme takes place between 10 - 19 July 2024. The detailed daily schedule is presented here. Lectures and activities are included."
       },
       {
         name: "site_name",

@@ -89,12 +89,12 @@
       return arr
     })
 
-    /* Head: title, site_name */
+    /* Head: title, description, site_name */
     useHead({
       title: "Our Lectures - CYZ Summer School",
       meta: [{
         name: "description",
-        content: "This is the Lectures List Page of CYZ Summer School"
+        content: "This is the Lectures List Page of CYZ Summer School: The lectures cover a wide range of topics in various subfields of Machine Learning, and practical activities are also proposed."
       },
         {
           name: "site_name",

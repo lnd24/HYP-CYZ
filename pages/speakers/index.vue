@@ -39,13 +39,13 @@
         return arr
     })
 
-    /* Head: title, site_name */
+    /* Head: title, description, site_name */
     useHead({
       title: "Our Speakers - CYZ Summer School",
       meta: [
         {
           name: "description",
-          content: "This is the Speakers Page of CYZ Summer School"
+          content: "This is the Speakers Page of CYZ Summer School: Our team is composed of national and international experts in Data Science and Machine Learning."
         },
         {
           name: "site_name",

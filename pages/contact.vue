@@ -72,13 +72,13 @@
   }
 
 
-  /* Head: title, site_name */
+  /* Head: title, description, site_name */
   useHead({
     title: "Contacts - CYZ Summer School",
     meta: [
       {
         name: "description",
-        content: "This is the Contact Page of CYZ Summer School"
+        content: "CYZ Summer School: Welcome to our contact page! We are thrilled to hear from you and we are here to help in any way we can. To get in touch with us, please fill out the contact form below or use the contact information provided. Please feel free to contact us with any inquiries or feedback you may have. We will do our best to get back to you as soon as possible. Thank you for your interest!"
       },
       {
         name: "site_name",

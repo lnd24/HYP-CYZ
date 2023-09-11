@@ -89,7 +89,7 @@
     meta: [
       {
         name: "description",
-        content: "Hi here is the CYZ Summer School"
+        content: "Over the last few years, machine learning techniques have become increasingly popular, and are now widely used in both the academia and the industry. CYZ Summer School has been organized to provide an overview of the relevant topics and the state-of-the-art techniques employed in machine learning, giving participants the tools to handle real-world problems from data exploration to building predictive models and extracting insights. The start date for registrations will be published in November 2023. Detailed information about the application procedure will be available soon on this website."
       },
       {
         name: "site_name",

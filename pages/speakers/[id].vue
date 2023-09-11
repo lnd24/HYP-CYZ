@@ -110,6 +110,13 @@
         gap: 3%;
     }
 
+    .info-group-others .smallcard .subtitle {
+      font-size: 18pt;
+      font-weight: bold;
+      color: #002a88;
+      padding-bottom: 10%;
+    }
+
     .data {
         font-weight: bolder;
         font-size: 18pt

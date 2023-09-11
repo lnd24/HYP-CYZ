@@ -80,13 +80,13 @@
     })
 
 
-    /* Head: title, site_name */
+    /* Head: title, description, site_name */
     useHead({
       title: "Our Social Activities - CYZ Summer School",
       meta: [
         {
           name: "description",
-          content: "This is the Social Activities List Page of CYZ Summer School"
+          content: "This is the Social Activities List Page of CYZ Summer School: We organize different kinds of social activities, such as trips and conferences, offering the participants the opportunity to visit interesting locations and to learn at the same time."
         },
         {
           name: "site_name",
