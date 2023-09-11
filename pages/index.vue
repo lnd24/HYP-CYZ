@@ -21,6 +21,10 @@
       <NuxtLink to = "/about" ><button id="read-more"><span>Contact Us</span></button></NuxtLink>
       <hr>
 
+      <Text title="Our Speakers" :description = "index_speakers"/>
+      <NuxtLink to = "/speakers" ><button id="read-more"><span>Show All Speakers</span></button></NuxtLink>
+      <hr>
+
       <Text title="Our Lectures" :description="index_lectures"/>
       <NuxtLink to = "/lectures" ><button id="read-more"><span>Show All Lectures</span></button></NuxtLink>
       <hr>
@@ -48,7 +52,7 @@
         ,
 
         index_lectures:
-            'Various introductory lectures and practical sessions are offered for a complete formation in the machine learning field. The covered topics include Deep Learning, Natural Language Processing, Data Mining, Reinforcement Learning, and so on.'
+            'Various introductory lectures and practical sessions are provided for a complete formation in the machine learning field. The covered topics include Deep Learning, Natural Language Processing, Data Mining, Reinforcement Learning, and so on.'
         ,
 
         index_application:
@@ -57,6 +61,9 @@
         ,
 
         index_activities: 'Activities have been organized for the participants to promote team collaboration and to broaden cultural awareness.',
+
+        index_speakers: 'Our team composed by national and international expert professors will be the speakers of the lectures.',
+
         contactUs: 'Contact Us'
       }
     }
