@@ -13,29 +13,21 @@
     <div class="big_card">
 
         <div class="big_card_image-container">
-          <span class="button" @click="prevIndex"> &lt </span>
+          <span class="button_next_prev" @click="prevIndex"> &lt </span>
           <img class="big_card_image" :src="objects[index].img.url" :alt="objects[index].img.alt" />
-          <span class="button" @click="nextIndex"> &gt </span>
+          <span class="button_next_prev" @click="nextIndex"> &gt </span>
         </div>
 
       <div class="data-container">
 
-
         <h1 class="title">{{ objects[index].title }}</h1>
         <h2 class="subtitle">{{ objects[index].subtitle }}</h2>
-        <span class="button"><NuxtLink :to = "objects[index].link" >Details</NuxtLink></span>
+        <button class="bigcard_button_details"><NuxtLink :to = "objects[index].link" ><span>Details</span></NuxtLink></button>
       </div>
 
       <div class="list-container">
-
-
           <div class="member" v-for="(obj, i) of objects" @click="changeIndex(i)" >
-              <img class="small_img" :src="obj.img.url" :alt="obj.img.alt" />
-            <div>
-              <span>{{obj.title}}</span>
-              <br>
-              <span>{{obj.subtitle}}</span>
-            </div>
+              <img class="small_img" :src="obj.img.url" />
           </div>
 
       </div>
@@ -101,7 +93,8 @@
     {
         display: flow;
         justify-content: center;
-        border: 2px midnightblue;
+        text-align: center;
+        background-color: #192B59;
         border-radius: 10px;
         padding: 2px;
         width: 100%
@@ -110,8 +103,9 @@
     .big_card_image
     {
         vertical-align: middle;
+        horiz-align: center;
         height: auto;
-        width: 1000px;
+        width: 70%;
         margin: auto;
     }
 
@@ -120,35 +114,107 @@
       display: flex;
       flex-flow: column;
       padding: 20px;
-      border: 2px solid black;
-      border-radius: 5px;
+      border: 2px solid #687d94;
       width: 100px;
       height: fit-content;
     }
 
     .big_card
     {
-      padding: 20px;
-      border: 2px solid black;
-      border-radius: 5px;
+      padding: 30px;
+      border: 2px solid #192B59;
+      border-radius: 10px;
+      width: 80vw;
     }
+
     .list-container
     {
+      margin-top: 30px;
+      margin-bottom: 20px;
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
       justify-content: center;
       align-content: flex-start;
-      gap: 20px;
+      gap: 15px;
     }
 
     .title
     {
-        font-size: 2em;
+        font-size: 3em;
         font-weight: bold;
     }
 
-    .button a{
-      background-color: #022338;
+
+    .bigcard_button_details {
+      z-index: 1;
+      font-size: 12pt;
+      padding: 10px 15px 10px 15px;
+      color: #01223d;
+      font-family: "Century Gothic", sans-serif;
+      background-color: #707898;
+      border: 0.3vh solid lightgray;
+      border-radius: 3px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin-bottom: 30px;
     }
+
+    .bigcard_button_details span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .bigcard_button_details span:after {
+      content: '>>';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+
+    .bigcard_button_details:hover span {
+      padding-right: 25px;
+    }
+
+    .bigcard_button_details:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+
+    .member {
+      margin: 5px;
+      padding: 10px;
+      width: 10vw;
+      cursor: pointer;
+    }
+
+    .member:hover {
+      background-clip: padding-box;
+      background-color: #445b86;
+      color: #192B59;
+      transition: .5s;
+    }
+
+    .button_next_prev {
+      margin: 5px;
+      background-color: #192B59;
+      padding: 10px;
+      color: #9facbb;
+      font-weight: bold;
+      font-size: 28pt;
+    }
+
+    .button_next_prev:hover {
+      background-clip: padding-box;
+      color: #c05e00;
+      transition: .5s;
+    }
+
+
+
+
 </style>

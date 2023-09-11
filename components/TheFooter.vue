@@ -17,7 +17,7 @@
         background-color: #192B59;
         flex-shrink: 0;
         text-align: left;
-        margin-top: 40px;
+        margin-top: 100px;
         border-top: 17px darkblue;
         padding: 25px;
 

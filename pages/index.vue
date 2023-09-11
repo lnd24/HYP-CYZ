@@ -10,8 +10,22 @@
         <div class="location-container">Politecnico di Milano</div>
         <img id = "time-icon" src = "~/assets/img/clock-icon.png" alt="time icon" />
         <div class="time-container">10 - 19 July, 2024</div>
-        <NuxtLink to = "/about" ><button id="read-more"><span>Read More</span></button></NuxtLink>
       </div>
+
+
+      <Text title="CYZ Summer School" :description = "index_overview"/>
+      <NuxtLink to = "/about" ><button id="read-more"><span>Read More</span></button></NuxtLink>
+      <hr>
+
+      <Text title="Application" :description = "index_application"/>
+      <NuxtLink to = "/about" ><button id="read-more"><span>Contact Us</span></button></NuxtLink>
+      <hr>
+
+      <Text title="Our Lectures" :description="index_lectures"/>
+      <NuxtLink to = "/lectures" ><button id="read-more"><span>Show All Lectures</span></button></NuxtLink>
+      <hr>
+
+      <Text title="Our Activities" :description="index_activities"/>
         <div class="lectures-container">
           <BigCard :objects = "lastActivity"/>
         </div>
@@ -22,16 +36,43 @@
   definePageMeta({
     layout: "forindex",
   });
+
+
+  export default {
+    name: '',
+
+    data() {
+      return {
+        index_overview:
+            'Over the last few years, machine learning techniques have become increasingly popular, and are now widely used in both the academia and the industry. CYZ Summer School has been organized to provide an overview of the relevant topics and the state-of-the-art techniques employed in machine learning, giving participants the tools to handle real-world problems from data exploration to building predictive models and extracting insights.'
+        ,
+
+        index_lectures:
+            'Various introductory lectures and practical sessions are offered for a complete formation in the machine learning field. The covered topics include Deep Learning, Natural Language Processing, Data Mining, Reinforcement Learning, and so on.'
+        ,
+
+        index_application:
+            'The start date for registrations will be published in November 2023.\n' + 'Detailed information about the application procedure will be available soon on this website. ' +
+            'In the meantime, we are available for any questions or inquiries.'
+        ,
+
+        index_activities: 'Activities have been organized for the participants to promote team collaboration and to broaden cultural awareness.',
+        contactUs: 'Contact Us'
+      }
+    }
+  }
 </script>
 
 <script setup>
+
+  import Text from "../components/Text";
+
   const {data: activities} = useFetch('/api/activities')
   const lastActivity = computed(()=>{
     const arr = []
     for(let a of activities.value){
       arr.push({
         title: a.title,
-        subtitle: a.location,
         link: '/socials/' + a.alias,
         img: {
           url: a.picture.url,
@@ -154,13 +195,9 @@
     }
 
     #read-more {
-      position: absolute;
-      margin-top: 15px;
-      top: max(42vw, 265px);
-      left: 20%;
       z-index: 1;
-      font-size: 1.5vw;
-      padding: 0.8vw 1.5vw 0.8vw 1.5vw;
+      font-size: 14pt;
+      padding: 10px 15px 10px 15px;
       color: white;
       font-family: "Century Gothic", sans-serif;
       background-color: #192B59;

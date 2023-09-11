@@ -22,9 +22,9 @@
       <div class="others">
         <h3 class="more_info">Other Speakers</h3>
         <div class = "info-group-others">
-          <button @click="changeIndex(-1)" v-if="!!others[index-1]">prev</button>
+          <button class="button_speaker_next_prev" @click="changeIndex(-1)" v-if="!!others[index-1]">&lt;</button>
           <SmallCard v-for="s of others[index]"  :title = "s.name " :subtitle = "s.surname" :link = "'/speakers/' + s.alias" />
-          <button @click="changeIndex(1)" v-if="!!others[index+1]">next</button>
+          <button class="button_speaker_next_prev" @click="changeIndex(1)" v-if="!!others[index+1]">&gt;</button>
         </div>
       </div>
 
@@ -125,4 +125,22 @@
         margin: 60px 20% 60px 20%;
         font-size: 15pt;
     }
+
+    .button_speaker_next_prev {
+      margin: 5px;
+      background-color: #f3f4fb;
+      padding: 10px;
+      color: #192B59;
+      font-weight: bold;
+      font-size: 28pt;
+      border: none;
+    }
+
+    .button_speaker_next_prev:hover {
+      background-clip: padding-box;
+      color: #c05e00;
+      transition: .5s;
+    }
+
+
 </style>

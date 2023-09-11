@@ -141,7 +141,7 @@ function hideMenu() {
       flex-direction: column;
       background: #192B59;
       max-width: max-content;
-      z-index: 1;
+      z-index: 2;
     }
 
     .hidden {

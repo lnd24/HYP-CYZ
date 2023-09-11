@@ -30,10 +30,10 @@
         ,
         logo: 'img/home-image.jpg',
         application:
-            'The summer school is open for international students, and all the courses will be taught in English. Applicants are expected to be at advanced Master level or PhD level with a solid background in Computer Science. \n' +
+            'The summer school is open for international participants, and all the courses will be taught in English. Applicants are expected to be students or graduates at advanced Master level or PhD level with a solid background in Computer Science. \n' +
             'To ensure accessibility, the summer school will be free of charge.' +
             '\n' +
-            'However, there will be a cap on the total number of participants.' +
+            'However, there will be a cap on the total number of attendees.' +
             '\n' +
             'The selection will be made according to the applicants’ CV and letters of motivation.',
         info: 'Feel free to contact us for further information!',
@@ -82,6 +82,7 @@
       border-radius: 3px;
       transition: all .5s;
       cursor: pointer;
+      margin-bottom: 60px;
     }
 
     #contact_button:hover {

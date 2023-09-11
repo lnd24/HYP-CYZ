@@ -35,6 +35,17 @@ a:hover {
     text-decoration-line: underline;
 }
 
+hr {
+    display: block;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    border-color: #192B59;
+    border-width: 1px;
+    width: 100%;
+}
+
+
+
 @media screen and (max-width: 800px) {
     .info-group {
         width: 100%;

@@ -11,7 +11,7 @@
           <option v-for="d of allDates" :value="d"> {{ d }} </option>
         </select>
       </div>
-        <h1>Social Activities</h1>
+        <h1>All Social Activities</h1>
         <div id="card-container">
             <Card v-for = "sa in filteredByDate" :title = "sa.title" :subtitle = "sa.location" :link = "'/socials/' + sa.alias" :img = "sa.picture" />
         </div>
