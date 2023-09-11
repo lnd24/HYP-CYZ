@@ -1,3 +1,3 @@
 export default defineEventHandler((event) => {
-    return "CYZ Summer School"
+    return "We have successfully received your message."
 })

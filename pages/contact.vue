@@ -1,5 +1,5 @@
 <!--
-    Contact Page
+    Contact Page + Form
 -->
 <template>
     <main>
@@ -26,26 +26,51 @@
 
           <p id="look-forward">We look forward to hearing from you!</p>
 
-            <form class="contact-form">
+            <form class="contact-form" @submit="sendMessage">
                 <div>
                     <label for = "name">Name & Surname</label>
-                    <input type = "text" id = "name" placeholder = "Name & Surname">
+                    <input type = "text" id = "name" placeholder = "Name & Surname" required v-model="name">
                 </div>
                 <div>
                     <label for = "mail">E-mail</label>
-                    <input type = "email" id = "mail" placeholder = "E-mail">
+                    <input type = "email" id = "mail" placeholder = "E-mail" required v-model="email">
                 </div>
                 <div id = "message-div">
                     <label for = "message">Message</label>
-                    <textarea id = "message" placeholder = "Write your message here"></textarea>  
+                    <textarea id = "message" placeholder = "Write your message here" required v-model="text"></textarea>
                 </div>
-                <button id = "contact-us-button" type = "submit" @click = "submitForm">Send Message</button>
+                <input type="submit" id = "contact-us-button" value="Send Message">
             </form>
         </main>
     </main>
 </template>
 
 <script setup>
+  const name = ref("")
+  const email = ref("")
+  const text = ref("")
+
+
+  async function sendMessage() {
+      if(!!name.value && !!email.value && email.value.includes('@') && email.value.indexOf('@')!==0 && email.value.indexOf('@')!==email.value.length-1){
+        try {
+          const res = await $fetch('/api', {
+            method: "POST",
+            body: {
+              user: name.value,
+              email: email.value,
+              text: text.value
+            }
+          })
+          alert(res)
+        }catch (e) {
+          alert("e")
+        }
+      }else {
+        alert("Please, fill all the fields correctly.")
+      }
+  }
+
 
   /* Head: title, site_name */
   useHead({
@@ -62,9 +87,7 @@
     ]
   })
 
-  function submitForm() {
-    alert('Message sent successfully')
-  }
+
 </script>
 
 <style>
