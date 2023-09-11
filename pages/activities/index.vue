@@ -1,5 +1,5 @@
 <!--
-    Page with the list of all the activities (2 Lists): Lectures, Social Activities
+    Page with the list of all the activities (2 Lists): Lectures, Social Activities (show max 3 elements per list)
     Filter by Date
 -->
 <template>
@@ -14,14 +14,15 @@
         <h1>Lectures</h1>
       <h3 v-if="filteredLectures.length===0"> No Lecture on {{ date }} </h3>
         <div id="card-container">
-            <SmallCard v-for = "(lecture, index) in filteredLectures" :title = "lecture.title" :subtitle = "speakers[index]" :link = "'/lectures/' + lecture.alias" />
-
+            <SmallCard v-for = "(lecture, index) in filteredLectures[0]" :title = "lecture.title" :subtitle = "speakers[index]" :link = "'/lectures/' + lecture.alias" />
         </div>
+      <button><NuxtLink to="/lectures"> See All Lectures </NuxtLink></button>
       <h1>Social Activities</h1>
       <h3 v-if="filteredActivities.length===0"> No Social Activity on {{ date }} </h3>
       <div id="card-container">
-        <Card v-for = "social of filteredActivities" :title = "social.title" :subtitle = "social.location" :link = "'/socials/' + social.alias" :img = "social.picture"/>
+        <Card v-for = "social of filteredActivities[0]" :title = "social.title" :subtitle = "social.location" :link = "'/socials/' + social.alias" :img = "social.picture"/>
       </div>
+      <button><NuxtLink to="/activity"> See All Social Activities </NuxtLink></button>
     </main>
 </template>
 
@@ -51,7 +52,7 @@
     const filteredLectures = computed(() => {
       // Checking for values where the full list is provided
       if(date.value === 0 || date.value === "")
-        return lectures.value
+        return showN(lectures.value, 3)
 
       const arr = []
 
@@ -62,13 +63,13 @@
         }
       }
       // Returning the filtered list
-      return arr
+      return showN(arr, 3)
     })
 
     // Speakers of the filtered lectures
     const speakers = computed(() => {
       const arr = []
-      for(const l of filteredLectures.value) {
+      for(const l of filteredLectures.value[0]) {
         arr.push(getSpeakers(l))
       }
       return arr
@@ -78,7 +79,7 @@
     const filteredActivities = computed(() => {
       // Checking for values where the full list is provided
       if(date.value === 0 || date.value === "")
-        return sactivities.value
+        return showN(sactivities.value, 3)
 
       const arr = []
 
@@ -89,7 +90,7 @@
         }
       }
       // Returning the filtered list
-      return arr
+      return showN(arr, 3)
     })
 
 
