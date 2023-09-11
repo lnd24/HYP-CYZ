@@ -16,13 +16,13 @@
         <div id="card-container">
             <SmallCard v-for = "(lecture, index) in filteredLectures[0]" :title = "lecture.title" :subtitle = "speakers[index]" :link = "'/lectures/' + lecture.alias" />
         </div>
-      <button><NuxtLink to="/lectures"> See All Lectures </NuxtLink></button>
+      <NuxtLink to="/lectures"><button>See All Lectures</button></NuxtLink>
       <h1>Social Activities</h1>
       <h3 v-if="filteredActivities.length===0"> No Social Activity on {{ date }} </h3>
       <div id="card-container">
         <Card v-for = "social of filteredActivities[0]" :title = "social.title" :subtitle = "social.location" :link = "'/socials/' + social.alias" :img = "social.picture"/>
       </div>
-      <button><NuxtLink to="/activity"> See All Social Activities </NuxtLink></button>
+      <NuxtLink to="/socials"><button>See All Social Activities</button></NuxtLink>
     </main>
 </template>
 
