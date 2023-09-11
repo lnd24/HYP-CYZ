@@ -14,7 +14,7 @@
         </div>
         <span class="title">{{ title }}</span>
         <span class="subtitle">{{ subtitle }}</span>
-        <NuxtLink :to = "link" ><button>Open description</button></NuxtLink>
+      <NuxtLink :to = "link" ><button class="smallcard_button"><span>More Details</span></button></NuxtLink>
     </div>
 </template>
 

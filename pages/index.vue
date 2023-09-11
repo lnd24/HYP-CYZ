@@ -4,7 +4,7 @@
 <template>
     <main>
       <div class="container">
-        <img id = "main-img" src = "~/assets/img/home-banner.jpg" alt="CYZ Summer School" />
+        <img id = "index-img" src = "~/assets/img/home-banner.jpg" alt="CYZ Summer School" />
         <div class="title-container">CYZ Summer School</div>
         <img id = "loc-icon" src = "~/assets/img/loc-icon.png" alt="location icon" />
         <div class="location-container">Politecnico di Milano</div>
@@ -75,7 +75,7 @@
     }
 
 
-    #main-img {
+    #index-img {
       min-width: 100%;
       min-height: 100%;
       bottom: 0;

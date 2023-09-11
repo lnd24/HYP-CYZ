@@ -39,7 +39,7 @@
                     <label for = "message">Message</label>
                     <textarea id = "message" placeholder = "Write your message here"></textarea>  
                 </div>
-                <button id = "contact-button" type = "submit" @click = "submitForm">Send Message</button>
+                <button id = "contact-us-button" type = "submit" @click = "submitForm">Send Message</button>
             </form>
         </main>
     </main>
@@ -78,7 +78,7 @@
 
     .contact-form {
         margin-top: 40px;
-        width: 600px;
+        width: 60%;
         display: flex;
         flex-direction: column;
         padding: 25px;
@@ -159,7 +159,7 @@
       color: #192B59;
     }
 
-    #contact-button {
+    #contact-us-button {
       align-self: center;
       width: 30%;
       font-size: 14pt;

@@ -3,7 +3,9 @@
 -->
 <template>
     <main>
+      <PageTitle title="All Activities" description = "Check out all the activities proposed by us, including lectures and social activities." />
       <div class = "form-container">
+
         <label for = "lecture-searcher">Search</label><input id = "lecture-searcher" type = 'text' placeholder = "Lecture Searcher" v-model = "word">
         <label for = "date-filter">Date filter</label>
         <select id = "date-filter" v-model = "date">

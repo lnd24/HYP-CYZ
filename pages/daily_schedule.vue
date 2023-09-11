@@ -3,6 +3,7 @@
 -->
 <template>
     <main>
+      <PageTitle title="Daily Schedule" description = "The Programme takes place between 10 - 19 July 2024. The detailed daily schedule is presented here. Lectures and activities are included." />
       <div>
         <div class="form-container">
           <label for="daily-schedule">Daily Schedule : </label> <input id = "daily-schedule" type = 'date' placeholder = "Daily Schedule" v-model = "currentDate" :max="endDate" :min="startDate">
@@ -10,7 +11,7 @@
       </div>
       <div class = "schedule-container">
         <div v-if="filtered.length === 0">
-          <h3> No Activity for {{ currentDate }} </h3>
+          <h3> No Activities for {{ currentDate }} </h3>
         </div>
         <div class = "info-group" v-for="a of filtered">
           <span> {{ a.schedule }} </span>

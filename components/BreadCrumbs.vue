@@ -58,6 +58,7 @@
       margin-block-end: 0;
       padding-top: 30px;
       padding-bottom: 20px;
+      padding-inline-start: 0;
     }
 
     .breadcrumb {
