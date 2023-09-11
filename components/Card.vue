@@ -53,6 +53,7 @@
         border-radius: 20px;
         width: fit-content;
         height: fit-content;
+        text-align: center;
     }
 
     .title

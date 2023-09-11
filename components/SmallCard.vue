@@ -9,7 +9,7 @@
 -->
 
 <template>
-    <div class="card">
+    <div class="smallcard">
         <span class="title">{{ title }}</span>
         <span class="subtitle">{{ subtitle }}</span>
       <NuxtLink :to = "link" ><button class="smallcard_button"><span>More Details</span></button></NuxtLink>
@@ -38,7 +38,7 @@
         height: 250px;
     }
 
-    .card
+    .smallcard
     {
         display: flex;
         flex-flow: column;
@@ -46,7 +46,7 @@
         border: 2px solid #192B59;
         border-radius: 10px;
         width: max-content;
-      text-align: center;
+        text-align: center;
     }
 
     .title

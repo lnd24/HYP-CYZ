@@ -3,7 +3,7 @@
 -->
 <template>
     <main>
-      <PageTitle title="All Activities" description = "Check out all the activities proposed by us, including lectures and social activities." />
+      <PageTitle title="Lectures" description = "The lectures cover a wide range of topics in various subfields of Machine Learning, and practical activities are also proposed." />
       <div class = "form-container">
 
         <label for = "lecture-searcher">Search</label><input id = "lecture-searcher" type = 'text' placeholder = "Lecture Searcher" v-model = "word">
@@ -14,7 +14,7 @@
       </div>
         <h1>Lectures</h1>
         <div id="card-container">
-            <SmallCard v-for = "(lecture, index) in filteredByDate" :title = "lecture.title" :subtitle = "speakers[index]" :link = "'/lectures/' + lecture.alias"/>
+            <Banner v-for = "(lecture, index) in filteredByDate" :title = "lecture.title" :subtitle = "speakers[index]" :link = "'/lectures/' + lecture.alias"/>
         </div>
     </main>
 </template>

@@ -4,7 +4,7 @@
 -->
 <template>
     <main>
-      <PageTitle title="All Activities" description = "Check out the activities proposed by us, including lectures and social activities." />
+      <PageTitle title="Activities" description = "Check out the activities proposed by us, including lectures and social activities." />
         <h1>Lectures</h1>
       <h3 v-if="filteredLectures.length===0"> No Lecture on {{ date }} </h3>
         <div id="card-container">
@@ -131,12 +131,19 @@
       font-size: 14pt;
       margin: 40px 0 100px 0;
       padding: 10px 15px 10px 15px;
-      color: #063057;
-      font-weight: bold;
+      color: #ffffff;
       font-family: "Century Gothic", sans-serif;
-      background-color: #9eabc4;
+      background-color: #535469;
       border: 0.3vh solid lightgray;
       border-radius: 3px;
+      transition: all .5s;
+      cursor: pointer;
+    }
+
+    #see_all_button:hover {
+      background-clip: padding-box;
+      background-color: #9facbb;
+      color: #192B59;
     }
 
 

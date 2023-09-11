@@ -165,7 +165,15 @@
       font-size: 14pt;
       font-family: "Century Gothic", sans-serif;
       border: 2px solid lightgray;
-      padding: 5px 0 5px 0;
+      padding: 9px 0 9px 0;
+      color: #192B59;
+      transition: all .5s;
+      cursor: pointer;
+    }
+
+    #contact-us-button:hover {
+      background-clip: padding-box;
+      background-color: #9facbb;
       color: #192B59;
     }
 

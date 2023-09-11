@@ -10,7 +10,7 @@
         <div class="location-container">Politecnico di Milano</div>
         <img id = "time-icon" src = "~/assets/img/clock-icon.png" alt="time icon" />
         <div class="time-container">10 - 19 July, 2024</div>
-        <NuxtLink to = "/about" ><button id="read-more">Read More</button></NuxtLink>
+        <NuxtLink to = "/about" ><button id="read-more"><span>Read More</span></button></NuxtLink>
       </div>
         <div class="lectures-container">
           <BigCard :objects = "lastActivity"/>
@@ -69,6 +69,7 @@
       flex-direction: column;
       align-items: center;
     }
+
     .container {
       width: 100%;
       height: 100%;
@@ -76,8 +77,8 @@
 
 
     #index-img {
-      min-width: 100%;
-      min-height: 100%;
+      width: 100%;
+      height: 100%;
       bottom: 0;
       left: 0;
       right: 0;
@@ -154,6 +155,7 @@
 
     #read-more {
       position: absolute;
+      margin-top: 15px;
       top: max(42vw, 265px);
       left: 20%;
       z-index: 1;
@@ -163,6 +165,15 @@
       font-family: "Century Gothic", sans-serif;
       background-color: #192B59;
       border: 0.3vh solid lightgray;
+      cursor: pointer;
     }
+
+    #read-more:hover {
+      background-clip: padding-box;
+      background-color: #9facbb;
+      color: #192B59;
+      transition: .5s;
+    }
+
 
 </style>

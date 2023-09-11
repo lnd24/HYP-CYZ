@@ -73,13 +73,21 @@
     #contact_button {
       z-index: 1;
       float: right;
-      font-size: 12pt;
+      font-size: 14pt;
       padding: 10px 15px 10px 15px;
       color: white;
       font-family: "Century Gothic", sans-serif;
       background-color: #192B59;
       border: 0.3vh solid lightgray;
       border-radius: 3px;
+      transition: all .5s;
+      cursor: pointer;
+    }
+
+    #contact_button:hover {
+      background-clip: padding-box;
+      background-color: #9facbb;
+      color: #192B59;
     }
 
 
