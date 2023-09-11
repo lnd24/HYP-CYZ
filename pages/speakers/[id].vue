@@ -19,9 +19,9 @@
           <SmallCard v-for="l of speaker.lectures" :title = "l.title" :link = "'/lectures/' + l.alias" />
         </div>
       </div>
-      <div>
+      <div class="others">
         <h3 class="more_info">Other Speakers</h3>
-        <div class = "info-group">
+        <div class = "info-group-others">
           <button @click="changeIndex(-1)" v-if="!!others[index-1]">prev</button>
           <SmallCard v-for="s of others[index]"  :title = "s.name " :subtitle = "s.surname" :link = "'/speakers/' + s.alias" />
           <button @click="changeIndex(1)" v-if="!!others[index+1]">next</button>
@@ -54,7 +54,7 @@
         }
       }
       // Returning the list of arrays of max 5 speakers
-      return showN(arr, 5)
+      return showN(arr, 4)
     })
 
     function changeIndex(value) {
@@ -97,13 +97,17 @@
         align-items: center;
     }
 
-    .info-group {
+    .others{
+      min-width: 100%;
+    }
+
+    .info-group-others {
         width: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        gap: 40px;
+        gap: 3%;
     }
 
     .data {
@@ -114,6 +118,7 @@
     .more_info {
       margin-top: 50px;
       margin-bottom: 30px;
+      margin-left: 10%;
     }
 
     #description {

@@ -6,7 +6,7 @@
       <PageTitle title="Speakers" description = "Our team is composed of national and international experts in Data Science and Machine Learning." />
 
         <div id="card-container">
-            <Card v-for = "speaker of filtered" :title = "speaker.name" :subtitle = "speaker.surname" :link = "'/speakers/' + speaker.alias" :img = speaker.photo />
+            <Card v-for = "speaker of filtered" :title = "speaker.name + ' ' + speaker.surname" :link = "'/speakers/' + speaker.alias" :img = speaker.photo />
         </div>
     </main>
 </template>

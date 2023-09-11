@@ -13,7 +13,7 @@
             <img class="img" :src="img.url" :alt="img.alt"/>
         </div>
         <span class="title">{{ title }}</span>
-        <span class="subtitle">{{ subtitle }}</span>
+        <span class="subtitle" v-if="!!subtitle">{{ subtitle }}</span>
       <NuxtLink :to = "link" ><button class="smallcard_button"><span>More Details</span></button></NuxtLink>
     </div>
 </template>
@@ -47,16 +47,21 @@
     {
         display: flex;
         flex-flow: column;
-        padding: 20px;
+        padding: 20px 20px 40px 20px;
         border: 2px solid black;
         border-radius: 20px;
         width: 25vw;
         text-align: center;
+        justify-content: space-between;
     }
 
-    .title
+    .card .title
     {
         font-size: 2em;
         font-weight: bold;
+      padding: 10% 0 10% 0;
+    }
+    .card .subtitle{
+      padding: 0 0 10% 0;
     }
 </style>

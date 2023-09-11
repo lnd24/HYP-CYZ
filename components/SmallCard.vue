@@ -11,7 +11,7 @@
 <template>
     <div class="smallcard">
         <span class="title">{{ title }}</span>
-        <span class="subtitle">{{ subtitle }}</span>
+        <span class="subtitle" v-if="!!subtitle">{{ subtitle }}</span>
       <NuxtLink :to = "link" ><button class="smallcard_button"><span>More Details</span></button></NuxtLink>
     </div>
 </template>
@@ -30,20 +30,28 @@
 
     .smallcard
     {
-        display: flex;
-        flex-flow: column;
-        padding: 20px;
-        border: 2px solid #192B59;
-        border-radius: 10px;
-        text-align: center;
-        width: 25%;
+      display: flex;
+      flex-flow: column;
+      padding: 20px;
+      border: 2px solid #192B59;
+      border-radius: 10px;
+      text-align: center;
+      justify-content: space-between;
+      max-width: 30%;
     }
 
-    .title
-    {
+    .smallcard .title {
       font-size: 18pt;
       font-weight: bold;
       color: #002a88;
+      padding-bottom: 10%;
+    }
+
+    .smallcard .subtitle {
+      font-size: 18pt;
+      font-weight: bold;
+      color: #002a88;
+      padding-bottom: 10%;
     }
 
     .smallcard_button {

@@ -78,7 +78,7 @@
 
     .contact-form {
         margin-top: 40px;
-        width: 60%;
+        width: 40%;
         display: flex;
         flex-direction: column;
         padding: 25px;
