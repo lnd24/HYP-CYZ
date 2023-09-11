@@ -29,16 +29,7 @@
   const startDate = ref("2024-07-10")
   const endDate = ref("2024-07-19")
 
-  const date = new Date();
-
-  let day = date.getDate();
-  // Fix day
-  day = day<10 ? `0${day}`: day
-  let month = date.getMonth() + 1;
-  // Fix month
-  month = month<10 ? `0${month}`: month
-  let year = date.getFullYear();
-  const currentDate = ref(`${year}-${month}-${day}`);
+  const currentDate = ref("2024-07-10");
 
   const filteredLectures = () => {
 
