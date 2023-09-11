@@ -5,7 +5,7 @@
 <template>
     <main>
         <div class = "activity-group">
-            <img id = "main-img" :src = "activity.picture.url" :alt = "activity.picture.alt" />
+            <img id = "activity-img" :src = "activity.picture.url" :alt = "activity.picture.alt" />
             <div id = "data-container">
                 <p class = "data">Title: <span class="infos">{{ activity.title }}</span></p>
                 <p class = "data">Time: <span class="infos">{{ activity.date + ",&nbsp;" + activity.startT + " - " + activity.endT }}</span> </p>
@@ -55,11 +55,12 @@
       align-content: center;
     }
 
-    #main-img {
+    #activity-img {
+      display: block;
       margin-top: 50px;
-      margin-left: 25%;
       min-width: 50%;
       height: auto;
+      width: 100%;
     }
 
     .data {
