@@ -163,10 +163,9 @@
       align-self: center;
       width: 30%;
       font-size: 14pt;
-      font-family: "Inter", sans-serif;
-      font-weight: bold;
+      font-family: "Century Gothic", sans-serif;
       border: 2px solid lightgray;
-      padding: 5px 8px 5px 8px;
+      padding: 5px 0 5px 0;
       color: #192B59;
     }
 

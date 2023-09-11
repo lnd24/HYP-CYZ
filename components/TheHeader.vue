@@ -83,7 +83,7 @@ function hideMenu() {
   nav {
     display: flex;
     gap: 30px;
-    font-size: 1em;
+    font-size: 1.1em;
   }
 
   nav li {

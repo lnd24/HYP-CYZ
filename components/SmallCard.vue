@@ -12,7 +12,7 @@
     <div class="card">
         <span class="title">{{ title }}</span>
         <span class="subtitle">{{ subtitle }}</span>
-        <NuxtLink :to = "link" ><button>Open description</button></NuxtLink>
+        <NuxtLink :to = "link" ><button class="smallcard_button">Open description</button></NuxtLink>
     </div>
 </template>
 
@@ -43,14 +43,30 @@
         display: flex;
         flex-flow: column;
         padding: 20px;
-        border: 2px solid black;
-        border-radius: 20px;
-        width: 300px;
+        border: 2px solid #192B59;
+        border-radius: 10px;
+        width: max-content;
     }
 
     .title
     {
-        font-size: 2em;
-        font-weight: bold;
+      font-size: 18pt;
+      font-weight: bold;
+      color: #002a88;
     }
+
+    .smallcard_button {
+      z-index: 1;
+      margin-top: 10px;
+      float: right;
+      font-size: 12pt;
+      padding: 10px 15px 10px 15px;
+      color: white;
+      font-family: "Century Gothic", sans-serif;
+      background-color: #192B59;
+      border: 0.3vh solid lightgray;
+      border-radius: 3px;
+    }
+
+
 </style>

@@ -7,8 +7,8 @@
       <PageTitle title="About Us" :description = "page_description" />
       <Text title="About the Event" :description = "overview" />
       <Text title="About the Application" :description = "application" />
-      <Text title="For more Information" :description = "info" />
-      <NuxtLink to = "/contact" ><button>{{ contactUs }}</button></NuxtLink>
+      <Text title="For more information" :description = "info" />
+      <NuxtLink to = "/contact" ><button id="contact_button">{{ contactUs }}</button></NuxtLink>
     </main>
 </template>
 
@@ -36,7 +36,7 @@
             'However, there will be a cap on the total number of participants.' +
             '\n' +
             'The selection will be made according to the applicants’ CV and letters of motivation.',
-        info: 'More Info',
+        info: 'Feel free to contact us for further information!',
         contactUs: 'Contact Us'
       }
     }
@@ -68,6 +68,18 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    #contact_button {
+      z-index: 1;
+      float: right;
+      font-size: 12pt;
+      padding: 10px 15px 10px 15px;
+      color: white;
+      font-family: "Century Gothic", sans-serif;
+      background-color: #192B59;
+      border: 0.3vh solid lightgray;
+      border-radius: 3px;
     }
 
 

@@ -7,22 +7,22 @@
         <div class = "info-group">
             <div id = "data-container">
                 <p class = "data">Title: <span>{{ lecture.title }}</span>  </p>
-                <p class = "data">Speakers: <span v-for="(s,index) in lecture.speakers"><NuxtLink :to="'/speakers/' + s.alias">{{ s.name +' '+ s.surname }}</NuxtLink>
+                <p class = "data">Speakers: <span v-for="(s,index) in lecture.speakers"><NuxtLink id="lec_speaker" :to="'/speakers/' + s.alias">{{ s.name +' '+ s.surname }}</NuxtLink>
                   <span v-if="index < lecture.speakers.length-1">, </span> </span>
                 </p>
-              <p class = "data">Schedule: <span>{{ lecture.date + ": &nbsp;" + lecture.startT + " - " + lecture.endT + ", " + lecture.location }}</span> </p>
+              <p class = "data">Time: <span>{{ lecture.date + ", " + lecture.startT + " - " + lecture.endT }}</span> </p>
+              <p class = "data">Location: <span>{{ lecture.location }}</span> </p>
             </div>
         </div>
-        <h2>Description</h2>
         <!--
             v-html allows us to change the structure of a HTML element.
             It used because of the 'newLineOnFullStop' function that returns a string with the <br> tags.
             This function is a composable that is available anywhere, without requiring to be imported.
         -->
-        <p id = "description" v-html = "newLineOnFullStop(lecture.description)"></p>
+      <p id = "description" v-html = "newLineOnFullStop(lecture.description)"></p>
 
-      <div>
-        <h3>You could be interested in these lectures:</h3>
+      <div id="interest">
+        <p id="interest_intro">You could be interested in these lectures:</p>
         <div class = "info-group">
           <SmallCard v-for="l of otherLectures" :title = "l.title" :link = "'/lectures/' + l.alias" />
         </div>
@@ -89,7 +89,7 @@
 
     .data {
         font-weight: bolder;
-        font-size: 20pt
+        font-size: 18pt;
     }
 
     .data a {
@@ -98,11 +98,39 @@
 
     .data span {
         font-weight: 100;
-        font-size: 15pt;
+        font-size: 18pt;
+    }
+
+    .infos {
+      font-size: 18pt;
+    }
+
+    #lec_speaker {
+      color: #181c91;
+      text-decoration: underline;
+      font-size: 18pt;
+    }
+
+    #data-container {
+      margin-top: 50px;
     }
 
     #description {
-        padding: 0 20px 0 20px;
-        font-size: 15pt;
+      margin-left: 20%;
+      margin-right: 20%;
+      font-size: 15pt;
     }
+
+    #interest {
+      width: 100%;
+      margin-top: 30px;
+    }
+
+    #interest_intro {
+      margin-left: 20%;
+      font-size: 15pt;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
 </style>
