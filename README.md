@@ -1,73 +1,59 @@
-# T08 - Template (Vercel)
+# Hypermedia Application Project - Group CYZ
 
-This is the implementation of the project for Vercel + Supabase
+## Team Members
+- Xinyi Cheng [@suannaituanzi]
+- Zheng Maria Yu [@Trixyz28]
+- Linda Zhu [@lnd24]
 
-## Preliminary steps
-As usual, the first things to do are:
-- moving inside the folder with the terminal (or opening the project with VSCode) and then using:
+## Implementation characteristics
+- Hosting Service: Vercel + Supabase.
+In order to realize a dynamic website, we decided to host the project adopting the combination Vercel + Supabase. Vercel allows us to deploy the project directly from the master branch of the GitHub repository, while we regularly worked on the dev branch. In addition, our database relies on the Supabase service.
 
-      npm install
+- Rendering mode: Server-Side Rendering.
+Our website is implemented with the Vue.js framework and Nuxt3, and this allows us to realize Server-Side Rendering for the project. The SSR technique renders the webpage on the server rather than in the browser, so the user can get a fully rendered HTML page. This is adopted for the faster availability of the content, along with better accessibility and indexation by search engines. 
 
-- To run the project you have to use:
+- Extra libraries used: None.
+No extra libraries were used for the fact that we tried to play around with CSS, templates, and scripts ourselves to test our skills. We created some Vue components to facilitate the page rendering. 
 
-      npm run dev
+- Extra features: Search, Filter, Interactive Map.
+We implemented the search function and the date filter in the pages All Lectures and All Activities, for the users’ convenience. An interactive map imported from Google Maps was used to display the location of the Summer School’s Office. 
 
-    or
+- Accessibility inspection: WAVE
+We tried to perform accessibility inspection with the WAVE tool, which discovered some deficiencies in the presentation of the website. 
 
-      npm run dev -- -o
-    
-    to automatically open your project in a new tab of your browser.
+- SEO features
+From the point of view of the SEO, we set the Title, Description, Site Name, and Viewport for all the pages.
 
-## Configuration
-To make the project work on Vercel + Supabase there are a few steps to do:
-- install supabase
+## Project Structure
+The structure of our project follows the standards of Nuxt3, and it is presented below.
 
-      npm install @nuxtjs/supabase --save-dev
+- assets/ served the general css stylesheets in assets/css and some static images in assets/img.
 
-- add the module to the nuxt.config.ts file:
+- components/
+Banner is implemented for rendering an horizontal banner with a title and a subtitle displayed in parallel. It is mainly used in All Lectures Page. 
+BigCard is a card used to display in focus a big image of the chosen element and its title and its link, and all the elements of the list are displayed in small images with their title below it.
+BreadCrumbs is the interactive orientation info of the page. It is present in all the pages except the Home page.
+Card represents a card-like box that contains and shows the image, title, subtitle and the link of an object.
+PageTitle is implemented for displaying a centered title and a textual introduction on the upper part of the main pages of the website. 
+SmallCard is a simplified version of Card without the image.
+Text is a paragraph of text content into the page, along with its title.
+TheFooter is the footer of the page.
+TheHeader is the header of the page.
 
-      export default defineNuxtConfig({
-        modules: ['@nuxtjs/supabase'],
-      })
+- layouts/ contains: 
+default: layout of the page with breadcrumbs
 
-- add SUPABASE_URL and SUPABASE_KEY to the .env (for local use):
+dorIndex: layout of the index page, without breadcrumbs
 
-      SUPABASE_URL="<Supabase URL>"
-      SUPABASE_KEY="<Supabase API Key>"
+- pages contains:
+lectures/ socials/ speakers/ :
+- [id].vue = single page of topic
+- index.vue = is group of topics page, a list of all the entries
+activities/
+- index.vue = it contains the list of lectures and the list of social activities
+- about.vue: a static page with the information of the summer school
+- contact.vue: a static page with the contacts of the summer school
+- daily_schedule.vue: it contains the list of lectures and list of social activities filtered by date
+index.vue: the home page
 
-## Deployment
-Vercel is connected to your repository. Any time you push something on the main/master branch, Vercel will automatically retrieve the project, build it and deploy it.
-This is why it's better to have two branches:
-- one for deployment
-- one for development
-
-In general, the command to build the "ready to deploy" project is:
-   
-    npm run build
-
-## Content
-The project contains:
-- 5 components
-  - Card
-  - SmallCard
-  - TextImage
-  - TheFooter
-  - TheHeader
-  - BreadCrumbs
-- 2 layout: 
-  - default
-  - forindex
-- 1 error page
-- 7 pages reachable at:
-  - /
-  - /contact
-  - /about
-  - /speakers
-  - /speakers/:id
-  - /lectures
-  - /lectures/:id
-  - /activities
-  - /activities/:id
-- The server implemented using the serverless implementation with the Supabase functionality
-
-Most of the content is commented to explain how things works.
+- public contains the icons and the images	
