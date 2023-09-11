@@ -1,12 +1,12 @@
 <!--
-    Page with the list of all the speakers + Searcher
+    Page with the list of all the speakers
 -->
 <template>
     <main>
       <PageTitle title="Speakers" description = "Our team is composed of national and international experts in Data Science and Machine Learning." />
 
         <div id="card-container">
-            <Card v-for = "speaker of filtered" :title = "speaker.name + ' ' + speaker.surname" :link = "'/speakers/' + speaker.alias" :img = speaker.photo />
+            <Card v-for = "speaker of speakers" :title = "speaker.name + ' ' + speaker.surname" :link = "'/speakers/' + speaker.alias" :img = speaker.photo />
         </div>
     </main>
 </template>
@@ -15,29 +15,6 @@
     // useRuntimeConfig provide us with environment variables set up in the nuxtconfig file
     const { data: speakers } = await useFetch('/api/speakers')
 
-    /*
-        Search the speakers whose name or surname include the key word
-    */
-    const word = ref("");
-
-    const filtered = computed(() => {
-        // Checking for values where the full list is provided
-        if(word.value === "")
-            return speakers.value
-
-        const arr = []
-
-        // Filtering the list
-        for(let speaker of speakers.value) {
-            //concat name and surname, then search the key word in it (all in Uppercase)
-            if((speaker.name + ' ' + speaker.surname).toUpperCase().includes(word.value.toUpperCase())){
-              arr.push(speaker)
-            }
-
-        }
-        // Returning the filtered list
-        return arr
-    })
 
     /* Head: title, description, site_name */
     useHead({
