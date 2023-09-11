@@ -12,10 +12,10 @@
   -->
   <div class="start-main-page">
   <div class="page-title">
-    <p> {{ title }} </p>
+    <span> {{ title }} </span>
   </div>
   <div class="page-description">
-    <p>{{ description }}</p>
+    <span>{{ description }}</span>
   </div>
   </div>
 </template>
@@ -44,20 +44,24 @@ defineProps({
 
 .start-main-page {
   width: 100%;
-  text-align: center;
-  background-color: #687d94;
+  text-align: left;
+  background: linear-gradient(180deg, #234975, #f3f4fb);
 }
 
 .page-title {
+  margin-left: 20%;
+  margin-top: 30px;
   align-content: center;
   font-weight: bold;
-  font-size: 26pt;
-  color: aliceblue;
+  font-size: 30pt;
+  color: #d5e4ff;
 }
 
 .page-description {
-  margin-left: 20%;
-  margin-right: 20%;
+  font-size: 14pt;
+  font-weight: bold;
+  color: #64647e;
+  margin: 20px 20% 60px 20%;
 }
 
 @media screen and (max-width: 1200px) {

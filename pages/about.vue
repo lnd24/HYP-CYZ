@@ -18,7 +18,7 @@
 
     data() {
       return {
-        page_description: 'AAAA'
+        page_description: 'Full-time Machine Learning-based Summer School in Milan.'
         ,
 
         overview:

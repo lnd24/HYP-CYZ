@@ -4,6 +4,7 @@
 <template>
     <main>
         <main>
+          <PageTitle title="Contact Us" description = "Welcome to our contact page!" />
           <div id="information">
             We are thrilled to hear from you and we are here to help in any way we can.
             <br><br>
@@ -45,6 +46,7 @@
 </template>
 
 <script setup>
+
   /* Head: title, site_name */
   useHead({
     title: "Contacts - CYZ Summer School",
@@ -94,16 +96,16 @@
     input {
       min-height: 20px;
       width: 50%;
-      font-size: 12pt;
+      font-size: 13pt;
     }
 
     textarea {
         width: 99%;
-        min-height: 5.1em;
+        min-height: 6em;
         resize: vertical;
         margin-top: 10px;
         font-family: Arial, sans-serif;
-        font-size: 12pt;
+        font-size: 13pt;
     }
 
     label {
@@ -119,7 +121,7 @@
       margin-top: 20px;
       margin-left: 20%;
       margin-right: 20%;
-      font-size: 18px;
+      font-size: 15pt;
     }
 
     iframe {
@@ -131,8 +133,9 @@
     }
 
     #address {
-      margin-top: 100px;
+      margin-top: 90px;
       float: right;
+      font-size: 14pt;
     }
 
     #address li {
@@ -151,7 +154,7 @@
 
     #look-forward {
       margin-top: 80px;
-      font-size: 24px;
+      font-size: 20pt;
       font-weight: bold;
       color: #192B59;
     }

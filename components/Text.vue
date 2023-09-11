@@ -8,7 +8,7 @@
 <template>
 
     <div class="text-title">
-      <h2> {{ title }} </h2>
+      <span> {{ title }} </span>
     </div>
     <div class="text">
       <p v-html = "newLineOnFullStop( description )" />
@@ -31,14 +31,16 @@
 <style>
 
     .text-title {
-      margin-top: 45px;
+      margin-top: 60px;
       align-content: center;
-      font-size: 16pt;
+      font-size: 24pt;
+      font-weight: bold;
+      color: #192B59;
     }
 
     .text {
-      margin-left: 20%;
-      margin-right: 20%;
+      margin: 20px 20% 40px 20%;
+      font-size: 15pt;
     }
 
     @media screen and (max-width: 1200px) {
