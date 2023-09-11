@@ -123,5 +123,14 @@
       font-size: 15pt;
     }
 
+    @media  screen and (max-width: 720px) {
+      .schedule-container .banner_wrapper {
+        margin: 1.5% 5% 1.5% 5%;
+      }
+      .schedule-container .banner {
+        width: 90%;
+      }
+    }
+
 
 </style>

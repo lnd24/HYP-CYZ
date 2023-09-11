@@ -40,23 +40,7 @@
 <script setup>
     const props = defineProps(['objects'])
     const index = ref(0)
-    /*
-    const showThree = computed(() => {
-      const arr = []
-          for(let i=-1; i<3; i++) {
-            if(index.value + i >= props.objects.length) {
-              arr.push(props.objects[index.value+i-props.objects.length])
-            }else if(index.value + i < 0){
-              arr.push(props.objects[index.value+i+props.objects.length])
-            }else {
-              arr.push(props.objects[index.value+i])
-            }
-          }
-          return arr
-        }
-    )
 
-     */
     function prevIndex()  {
       if(index.value === 0) {
         index.value = props.objects.length - 1;
@@ -74,17 +58,6 @@
 
     function changeIndex(i) {
       index.value = i
-      /*
-      const temp = index.value + i - 1
-      if(temp < 0 ){
-        index.value = props.objects.length - 1
-      }else if(temp > props.objects.length - 1){
-        index.value = 0
-      }else {
-        index.value = temp
-      }
-
-       */
     }
 </script>
 
@@ -202,7 +175,7 @@
     .button_next_prev {
       margin: 5px;
       background-color: #192B59;
-      padding: 10px;
+      padding: 1%;
       color: #9facbb;
       font-weight: bold;
       font-size: 28pt;

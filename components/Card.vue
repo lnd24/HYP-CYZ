@@ -59,9 +59,17 @@
     {
         font-size: 2em;
         font-weight: bold;
-      padding: 10% 0 10% 0;
+        padding: 10% 0 10% 0;
     }
     .card .subtitle{
       padding: 0 0 10% 0;
+    }
+
+    @media screen and (max-width: 620px) {
+
+      .card .title
+      {
+        font-size: 4.5vw;
+      }
     }
 </style>

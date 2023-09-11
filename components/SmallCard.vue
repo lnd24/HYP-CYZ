@@ -89,6 +89,21 @@
       right: 0;
     }
 
+    @media  screen and (max-width: 700px) {
+      .smallcard
+      {
+        padding: 1.5%;
+      }
+      .smallcard .title {
+        font-size: 2.9vw;
+      }
+      .smallcard_button {
+        font-size: 2.9vw;
+        padding: 5% 7% 5% 7%;
+      }
+
+    }
+
 
 
 </style>

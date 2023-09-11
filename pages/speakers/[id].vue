@@ -148,6 +148,15 @@
       color: #c05e00;
       transition: .5s;
     }
+    @media  screen and (max-width: 700px) {
+      .info-group-others .smallcard .subtitle {
+        font-size: 2.9vw;
+      }
+      .button_speaker_next_prev {
+        margin: 5px;
+        padding: 0;
+      }
+    }
 
 
 </style>
